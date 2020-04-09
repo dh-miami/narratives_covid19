@@ -21,4 +21,12 @@ List of Hashtags
 | #socialdistancing             |
 | #stayathome   |               |
 | #IStayHomeFor |               |
+| #covid2019    |               |
+| #covid_19     |               |
+| #coronavirusoutbreak          |
+| #StayAtHomeChallenge          |
+| #SafeHands    |               |
+| #ViewFromMyWindow             |
+| #QuarantineAndChill           |
+| #TogetherAtHome               |
 
