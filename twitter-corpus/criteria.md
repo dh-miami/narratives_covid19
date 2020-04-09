@@ -13,3 +13,12 @@ List of Hashtags
 | #covid        | #covid        | 
 | #covid19      | #covid19      |  
 | #pandemia     | #pandemia     | 
+| #coronavirus  |               |
+| #quarantine   |               |
+| #wuhanvirus   |               |
+| #wuhan        |               |
+| #stayhome     |               |
+| #socialdistancing             |
+| #stayathome   |               |
+| #IStayHomeFor |               |
+
