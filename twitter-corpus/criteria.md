@@ -29,4 +29,8 @@ List of Hashtags
 | #ViewFromMyWindow             |
 | #QuarantineAndChill           |
 | #TogetherAtHome               |
+| #ChineseVirus |               |
+| #fluhan       |               |
+| #KongFlu      |               |
+
 
