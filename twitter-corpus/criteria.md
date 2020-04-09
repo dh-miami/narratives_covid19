@@ -4,7 +4,7 @@ List of variables:
 
 * By date
 * By Language: English, Spanish
-* By city: Miami 
+* By city: Miami, New York City, San Francisco, Seattle, New Orleans, New Jersey
 
 List of Hashtags 
 
