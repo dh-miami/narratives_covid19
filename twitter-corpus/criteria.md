@@ -32,5 +32,6 @@ List of Hashtags
 | #ChineseVirus |               |
 | #fluhan       |               |
 | #KongFlu      |               |
-
+| #KungFlu      |               |
+| #StaySafe     |               |
 
