@@ -4,4 +4,5 @@
 * Chen, Emily, Kristina Lerman, Emilio Ferrara. "COVID-19: The First Public Coronavirus Twitter Dataset." arXiv.org, Cornell University (Submitted on 16 Mar 2020) [Online Data set]. Avaibale at: <https://arxiv.org/abs/2003.07372> and <https://github.com/echen102/COVID-19-TweetIDs>
 * Kerchner, Daniel; Wrubel, Laura, 2020, "Coronavirus Tweet Ids." Harvard Dataverse, V2. Available at: https://doi.org/10.7910/DVN/LW0BTB, 
 * Lamsal, Rabindra.  "Corona Virus (COVID-19) Tweets Dataset." IEEE Dataport, 2020. [Online Data set]. Available at: <http://dx.doi.org/10.21227/781w-ef42> and <https://ieee-dataport.org/open-access/corona-virus-covid-19-tweets-dataset>
+* Documenting the Now updated Catalogue (04/16/2020). Available at: <https://catalog.docnow.io/>
 
