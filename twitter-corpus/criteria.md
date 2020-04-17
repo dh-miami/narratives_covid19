@@ -18,9 +18,10 @@ List of Hashtags
 | #wuhanvirus   |               |
 | #wuhan        |               |
 | #stayhome     |               |
-| #socialdistancing           |
+| #socialdistancing|            |
 | #stayathome   | #quedatencasa |
-| #IStayHomeFor |               |
+| #IStayHomeFor |#mequedoencasa|
+|               |#yomequedoencasa|
 | #covid2019    |               |
 | #covid_19     |               |
 | #coronavirusoutbreak          |
@@ -33,4 +34,6 @@ List of Hashtags
 | #fluhan       |               |
 | #KongFlu      |               |
 |  #Infodemic   |  #Infodemia   |           
+|               | #NoSonVacaciones|
+|               | #CuidarteEsCuidarnos|
 
