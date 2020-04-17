@@ -32,5 +32,5 @@ List of Hashtags
 | #ChineseVirus |               |
 | #fluhan       |               |
 | #KongFlu      |               |
-
+|  #Infodemic   |  #Infodemia   |           
 
