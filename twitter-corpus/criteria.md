@@ -2,7 +2,7 @@
 
 List of variables: 
 
-* By date: 2020/03/11-...
+* By date: 2020/02/26-...
 * By Language: English, Spanish
 * By city: Miami, New York City, San Francisco, Seattle, New Orleans, New Jersey
 * By country: Argentina, Chile, Colombia, Ecuador, España, México, Perú, Venezuela
