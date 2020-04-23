@@ -15,6 +15,7 @@ It seems there are different tools to hydratate tweets, and that the two best kn
 We are going to use Hydrator for now because it seems easier and has a GUI. 
 
 Follow the instructions to install it: https://github.com/DocNow/hydrator 
-Also, we recommend that you follow the Lesson from the programming historian: 
+
+Also, we recommend that you follow the Lesson from the programming historian: Brad Rittenhouse, Ximin Mi, and Courtney Allen, "Beginner's Guide to Twitter Data," The Programming Historian 8 (2019), <https://programminghistorian.org/en/lessons/beginners-guide-to-twitter-data> 
 
 
