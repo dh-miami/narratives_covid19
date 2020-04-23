@@ -1,4 +1,4 @@
-This folder will contain a corpus related to Covid19 hashtags and tweet feeds. It will be organized: 
+This folder will contain a corpus related to Covid-19 tweets and it will be organized as follows: 
 
 * By Language: English, Spanish
 * By Day: January 20th - 
