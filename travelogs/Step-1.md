@@ -19,13 +19,14 @@ As we discussed, let's all start by familiarizing with a Twitter dataset. Please
    * They structure the dataset in folders by day, eachone containing a csv file: 
     - 2 version: 1 clean version of tweets (clean-dataset.tsv.gz), and a version with tweets and retweets (dataset.tsv.gz)
     - By using NPL they built a dataset of the 1000 frequent words, bigrams, and trigrams.
+   * The problem with this files .tsv is that they are huge, so they are not managable with our laptops.
 * [COVID-19-TweetIDs](https://github.com/echen102/COVID-19-TweetIDs) (Chen & Ferrara)
   * They start their corpus on January 21th
   * Only in English
   * They structure the dataset in files .txt per hour (year-month-date-hour). 
   * Check their list of [keywords](https://github.com/echen102/COVID-19-TweetIDs/blob/master/keywords.txt)
 
-I propose to start working with the Panacea Lab: <https://github.com/thepanacealab/covid19_twitter/tree/master/dailies> Download the file [full_dataset-clean.tsv.gz](https://zenodo.org/record/3757272/files/full_dataset-clean.tsv.gz?download=1) in Zenodo that contains the last version released.
+For now, the best option is to simply make some experiments with one of the .txt file from the Chen & Ferrara dataset. We can choose a day, for example, April 1st, [coronavirus-tweet-id-2020-04-01-00.txt](https://github.com/echen102/COVID-19-TweetIDs/blob/master/2020-04/coronavirus-tweet-id-2020-04-01-00.txt). Download the file or copy and paste the content in a single .txt file. 
 
 ## Hydratate 
 
@@ -34,6 +35,15 @@ There are different tools to hydratate tweets, and that the two best known are [
 We are going to use Hydrator for now because it seems easier and has a GUI. 
 
 Follow the instructions to install it: https://github.com/DocNow/hydrator 
+
+Once is installed, do the follwing: 
+
+- open it, go to "Settings" > "Link Twitter Account"
+- your Twitter account will open in the browser 
+- click on "Authorize application", and it will give you a pin number. 
+- Copy the pin number and paste it in the Hydratator and click Submit PIN. 
+- In Hydratator, go to "Add", and select the file with the dataset that you downloaded. 
+- Click start... and it will take some minutes
 
 Also, we recommend that you follow the Lesson from the programming historian: Brad Rittenhouse, Ximin Mi, and Courtney Allen, "Beginner's Guide to Twitter Data," The Programming Historian 8 (2019), <https://programminghistorian.org/en/lessons/beginners-guide-to-twitter-data> 
 
