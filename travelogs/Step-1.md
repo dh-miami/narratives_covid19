@@ -6,9 +6,12 @@ To be discussed April 27th, 2020 & You can add comments, troubles, and useful in
 
 Otherwise you won't be able to recover the tweets. Here is the link <https://developer.twitter.com/en/apply-for-access>. If you have already a Twitter account it won't take long.
 
+Description of the use of Twitter data for research: <https://developer.twitter.com/en/use-cases/academic-researchers>
+Twitter's goal is to: "Learn about public conversation"
+
 ## Twitter datasets 
 
-As we discussed, let's all start by familiarizing with a Twitter dataset. Please read, this blog post that I wrote and visit all different datasets to give you an idea of what we will be doing. All four datasets are very interesting, specially these two: 
+As we discussed, let's all start by familiarizing with a Twitter dataset. Please read, [this blog post](https://covid.dh.miami.edu/2020/04/23/mining-twitter-and-covid-19-datasets/) that I wrote and visit all different datasets to give you an idea of what we will be doing. All four datasets are very interesting, specially these two: 
 
 * [Covid-19 Twitter chatter dataset for scientific use](Covid-19 Twitter chatter dataset for scientific use) (Panacea Lab).
    * They start their corpus on January 1st, 2020. 
@@ -22,7 +25,7 @@ As we discussed, let's all start by familiarizing with a Twitter dataset. Please
   * They structure the dataset in files .txt per hour (year-month-date-hour). 
   * Check their list of [keywords](https://github.com/echen102/COVID-19-TweetIDs/blob/master/keywords.txt)
 
-I propose to start working with the Panacea Lab: <https://github.com/thepanacealab/covid19_twitter/tree/master/dailies> 
+I propose to start working with the Panacea Lab: <https://github.com/thepanacealab/covid19_twitter/tree/master/dailies> Download the file [full_dataset-clean.tsv.gz](https://zenodo.org/record/3757272/files/full_dataset-clean.tsv.gz?download=1) in Zenodo that contains the last version released.
 
 ## Hydratate 
 
