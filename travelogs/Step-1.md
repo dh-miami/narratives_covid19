@@ -50,6 +50,44 @@ Once is installed, do the follwing:
 
 Also, we recommend that you follow the Lesson from the programming historian: Brad Rittenhouse, Ximin Mi, and Courtney Allen, "Beginner's Guide to Twitter Data," The Programming Historian 8 (2019), <https://programminghistorian.org/en/lessons/beginners-guide-to-twitter-data> 
 
+# Twitter dataset metadata
+
+After the "hydratation" is done, we get a csv file with all metadata associated to the tweets. This is the complete list: 
+* `coordinates`
+* `created_at`	(date)
+* `hashtags`	
+* `media`	(if tweet had media attached)
+* `urls`	(if tweet had url attached)
+* `favorite_count`	
+* `id`
+* `in_reply_to_screen_name`	
+* `in_reply_to_status_id`	
+* `in_reply_to_user_id`	
+* `lang`	
+* `place`	(exact location)
+* `possibly_sensitive`	
+* `retweet_count`	
+* `reweet_id`	
+* `retweet_screen_name`	
+* `source`	
+* `text`	
+* `tweet_url`	
+* `user_created_at	user_screen_name`	
+* `user_default_profile_image`	
+* `user_description`	
+* `user_favourites_count`	
+* `user_followers_count`	
+* `user_friends_count`	
+* `user_listed_count`	
+* `user_location`
+* `user_name`	
+* `user_screen_name`	
+* `user_statuses_count`	
+* `user_time_zone`	
+* `user_urls`	
+* `user_verified`
+
+
 # Questions
 - Dieyun started drafting a [list of question](https://github.com/dh-miami/narratives_covid19/blob/master/twitter-corpus/questions.md). Let's modify this list begining with simple questions and keep adding more. 
 
