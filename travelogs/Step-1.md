@@ -22,7 +22,7 @@ As we discussed, let's all start by familiarizing with a Twitter dataset. Please
     - 2 version: 1 clean version of tweets (clean-dataset.tsv.gz), and a version with tweets and retweets (dataset.tsv.gz)
     - By using NPL they built a dataset of the 1000 frequent words, bigrams, and trigrams.
    * The problem with this files .tsv is that they are huge, so they are not managable with our laptops.
-   * [Here's] (https://arxiv.org/pdf/2004.03688.pdf) the article the team wrote detailing research methods and each steps, I (Dieyun) find the tools mentioned to achieve each goals especially helpful. 
+   * [Here's](https://arxiv.org/pdf/2004.03688.pdf) the article the team wrote detailing research methods and each steps, I (Dieyun) find the tools mentioned to achieve each goals especially helpful. 
 * [COVID-19-TweetIDs](https://github.com/echen102/COVID-19-TweetIDs) (Chen & Ferrara)
   * They start their corpus on January 21th
   * Only in English
