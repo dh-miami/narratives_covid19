@@ -9,6 +9,8 @@ Otherwise you won't be able to recover the tweets. Here is the link <https://dev
 Description of the use of Twitter data for research: <https://developer.twitter.com/en/use-cases/academic-researchers>
 Twitter's goal is to: "Learn about public conversation"
 
+Twitter has a useful research toolkit for academic researchers: <https://developer.twitter.com/en/use-cases/academic-researchers/helpful-tools>
+
 ## Twitter datasets 
 
 As we discussed, let's all start by familiarizing with a Twitter dataset. Please read, [this blog post](https://covid.dh.miami.edu/2020/04/23/mining-twitter-and-covid-19-datasets/) that I wrote and visit all different datasets to give you an idea of what we will be doing. All four datasets are very interesting, specially these two: 
