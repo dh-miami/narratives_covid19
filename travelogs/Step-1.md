@@ -15,14 +15,14 @@ Twitter has a useful research toolkit for academic researchers: <https://develop
 
 As we discussed, let's all start by familiarizing with a Twitter dataset. Please read, [this blog post](https://covid.dh.miami.edu/2020/04/23/mining-twitter-and-covid-19-datasets/) that I wrote and visit all different datasets to give you an idea of what we will be doing. All four datasets are very interesting, specially these two: 
 
-* [Covid-19 Twitter chatter dataset for scientific use](Covid-19 Twitter chatter dataset for scientific use) (Panacea Lab).
+* [Covid-19 Twitter chatter dataset for scientific use](https://github.com/thepanacealab/covid19_twitter) (Panacea Lab).
    * They start their corpus on January 1st, 2020. 
    * They collect English, Spanish, French
    * They structure the dataset in folders by day, eachone containing a csv file: 
     - 2 version: 1 clean version of tweets (clean-dataset.tsv.gz), and a version with tweets and retweets (dataset.tsv.gz)
     - By using NPL they built a dataset of the 1000 frequent words, bigrams, and trigrams.
    * The problem with this files .tsv is that they are huge, so they are not managable with our laptops.
-   * [Here's](https://arxiv.org/pdf/2004.03688.pdf) the article the team wrote detailing research methods and each steps, I (Dieyun) find the tools mentioned to achieve each goals especially helpful. 
+   
 * [COVID-19-TweetIDs](https://github.com/echen102/COVID-19-TweetIDs) (Chen & Ferrara)
   * They start their corpus on January 21th
   * Only in English
