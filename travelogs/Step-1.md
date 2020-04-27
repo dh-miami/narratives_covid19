@@ -53,33 +53,34 @@ Also, we recommend that you follow the Lesson from the programming historian: Br
 # Twitter dataset metadata
 
 After the "hydratation" is done, we get a csv file with all metadata associated to the tweets. This is the complete list: 
-* `coordinates`: In Chen & Ferrara dataset it does not appear.
+* **`coordinates`**: In Chen & Ferrara dataset it does not appear.
 * **`created_at`**:	date
-* `hashtags`	
+* **`hashtags`**	
 * `media`	(if tweet had media attached)
 * `urls`	(if tweet had url attached)
 * `favorite_count`	
-* `id`
+* **`id`**
 * `in_reply_to_screen_name`	
 * `in_reply_to_status_id`	
 * `in_reply_to_user_id`	
-* `lang`	
-* `place`	(exact location)
+* **`lang`**	
+* **`place`**:	(exact location)
 * `possibly_sensitive`	
 * `retweet_count`	
 * `reweet_id`	
 * `retweet_screen_name`	
-* `source`	
-* `text`	
-* `tweet_url`	
-* `user_created_at	user_screen_name`	
+* `source`
+* **`text`**	
+* **`tweet_url`**: link to the tweet itself	
+* `user_created_at`		
+* `user_screen_name`	
 * `user_default_profile_image`	
 * `user_description`	
 * `user_favourites_count`	
 * `user_followers_count`	
 * `user_friends_count`	
 * `user_listed_count`	
-* `user_location`
+* **`user_location`**
 * `user_name`	
 * `user_screen_name`	
 * `user_statuses_count`	
