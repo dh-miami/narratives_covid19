@@ -53,8 +53,8 @@ Also, we recommend that you follow the Lesson from the programming historian: Br
 # Twitter dataset metadata
 
 After the "hydratation" is done, we get a csv file with all metadata associated to the tweets. This is the complete list: 
-* `coordinates`
-* `created_at`	(date)
+* `coordinates`: In Chen & Ferrara dataset it does not appear.
+* *`created_at`*:	date
 * `hashtags`	
 * `media`	(if tweet had media attached)
 * `urls`	(if tweet had url attached)
