@@ -50,3 +50,10 @@ List of Hashtags:
 | | #CuidarteEsCuidarnos |
 |#COVIDIDIOT |  |
 
+List of Keywords: 
+
+| English       | Spanish       | 
+| ------------- |:-------------:| 
+| covid        | covid        | 
+| covid19      | covid19      | 
+| pandemic      | pandemia      | 
