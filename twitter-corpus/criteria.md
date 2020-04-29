@@ -2,10 +2,9 @@
 
 List of variables: 
 
-* By date: 2020/01/20-
+* By date: 2020/01/20- (depending on the API restrictions)
 * By Language: English, Spanish
-* By city: Miami, New York City, San Francisco, Seattle, New Orleans, New Jersey
-* By country: US, Argentina, Chile, Colombia, Ecuador, España, México, Perú, Venezuela
+* Tweets with geolocalization
 
 List of Hashtags: 
 
