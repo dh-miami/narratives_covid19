@@ -35,8 +35,14 @@ List of Hashtags:
 | #ChineseVirus |               |
 | #fluhan       |               |
 | #KongFlu      |               |
-|  #Infodemic   |  #Infodemia   |           
-|               | #NoSonVacaciones|
-|               | #CuidarteEsCuidarnos|
+| #Infodemic    |  #Infodemia   |           
+| #k95          | #NoSonVacaciones|
+| #corona       | #CuidarteEsCuidarnos|
+|#CDC           |
+|#sars-cov-2    |
+|#panicshopping |                    
+|#panicbuying   |
+|#staysafestayhome|
+
 
 
