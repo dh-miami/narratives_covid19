@@ -58,7 +58,6 @@ List of Keywords:
 | covid-19      | covid-19    | 
 | pandemic      | pandemia   | 
 | outbreak      |  brote     | 
-| outbreak      |  brote     | 
 | Social Distancing |  Distanciamiento social  | 
 | quarantine | quarentena |
 | Wuhan | Wuhan  |
