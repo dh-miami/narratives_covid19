@@ -10,4 +10,12 @@ Resources:
 
 ## Data: 
 
+### Journal articles:
 * [CORD-19 (COVID-19 Open Research Dataset)](https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge), "resource of over 57,000 scholarly articles, including over 45,000 with full text, about COVID-19, SARS-CoV-2, and related coronaviruses"
+* [AVOBMAT (Analysis and Visualization of Bibliographic Metadata and Texts)](http://dighum.bibl.u-szeged.hu/avobmat-covid/home). "Critical and interactive analysis of bibliographic metadata and texts with data-driven and NLP methods supported by AI techniques in a number of languages" "COVID-19 version: user-friendly application to help researchers and medical professionals to text mine the corpus and discover new insights". 
+
+### "Literature"
+* [COVID-TECA (Hemeroteca de humanidades sobre la pandemia de coronavirus)](https://iberlab.ugr.es/hemeroteca-covid19/), IBERLAB. Crítica lenguas y culturas en Iberoamérica, Universidad de Granada. 
+
+### Libraries recollecting data
+* BNE, [Archivo de la Web Española "Coronavirus"](http://www.bne.es/es/AreaPrensa/noticias2020/0317-BNE-trabaja-recoleccion-informacion-Internet-Coronavirus.html)
