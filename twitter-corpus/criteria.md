@@ -55,4 +55,15 @@ List of Keywords:
 | ------------- |:-------------:| 
 | covid        | covid        | 
 | covid19      | covid19      | 
-| pandemic      | pandemia      | 
+| covid-19      | covid-19    | 
+| pandemic      | pandemia   | 
+| outbreak      |  brote     | 
+| outbreak      |  brote     | 
+| Social Distancing |  Distanciamiento social  | 
+| quarantine | quarentena |
+| Wuhan | Wuhan  |
+| lockdown | confinamiento  |
+| curfew| toque de queda |
+| flatten the curve | desescalada |
+| China virus | virus chino |
+
