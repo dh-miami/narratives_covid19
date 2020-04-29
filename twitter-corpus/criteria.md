@@ -18,31 +18,35 @@ List of Hashtags:
 | #pandemia     | #pandemia     | 
 | #coronavirus  | #coronavirus  |
 | #quarantine   | #cuarentena   |
-|               | #CuarentenaTotal|
-| #socialdistancing|            |
+| #quarantine*  | #CuarentenaTotal|
+| #socialdistancing| #DistanciamientoSocial|
 | #wuhanvirus   |               |
 | #wuhan        |               |
 | #stayhome     |               |
-| #stayathome   | #quedatencasa |
+| #stayathome   | #QuedateEnCasa |
 | #IStayHomeFor |#mequedoencasa|
 |               |#yomequedoencasa|
-| #coronavirusoutbreak          |
-| #StayAtHomeChallenge          |
-| #SafeHands    |               |
+| #CoronavirusOutbreak |          |
+| #CoronavirusCrisis |       |
+| #StayAtHomeChallenge |         |
+| #SafeHands    | #LavateLasManos |
 | #ViewFromMyWindow|             |
 | #QuarantineAndChill|           |
 | #TogetherAtHome|               |
-| #ChineseVirus |               |
+| #ChineseVirus | #VirusChino   |
 | #fluhan       |               |
 | #KongFlu      |               |
 | #Infodemic    |  #Infodemia   |           
-| #k95          | #NoSonVacaciones|
-| #corona       | #CuidarteEsCuidarnos|
+| #k95          | |
+| #corona       | |
 |#CDC           |
 |#sars-cov-2    |
 |#panicshopping |                    
 |#panicbuying   |
 |#staysafestayhome|
-
-
+| #FlattenTheCurve | #desescalada |
+| | #nuevarealidad |
+| | #NoSonVacaciones |
+| | #CuidarteEsCuidarnos |
+|#COVIDIDIOT |  |
 
