@@ -48,6 +48,15 @@ List of Hashtags:
 | | #NoSonVacaciones |
 | | #CuidarteEsCuidarnos |
 |#COVIDIDIOT |  |
+|#coronavirussyllabus|
+|#coronavisrusyllabusK12|
+|#covid19syllabus|
+|#onlineteaching|
+|#remoteteaching|
+|#distantlearning|
+|#coronasyllabus|
+|#covidteaching| 
+|#CovidCampus| 
 
 List of Keywords: 
 
@@ -65,4 +74,6 @@ List of Keywords:
 | curfew| toque de queda |
 | flatten the curve | desescalada |
 | China virus | virus chino |
-
+| Remote Teaching |  |
+| Online Teaching |  |
+| Covid Teaching |  |
