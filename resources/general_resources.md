@@ -19,3 +19,12 @@ Resources:
 
 ### Libraries recollecting data
 * BNE, [Archivo de la Web Española "Coronavirus"](http://www.bne.es/es/AreaPrensa/noticias2020/0317-BNE-trabaja-recoleccion-informacion-Internet-Coronavirus.html)
+
+### Teaching
+ * The Covid Tracking Project https://covidtracking.com/ 
+ * The News Beyond The COVID Numbers https://www.npr.org/2020/04/21/840609912/the-news-beyond-the-covid-numbers
+ * How professors changed their teaching in this spring's shift to remote learning | Inside Higher Ed https://www.insidehighered.com/digital-learning/article/2020/04/22/how-professors-changed-their-teaching-springs-shift-remote?utm_source=Inside+Higher+Ed&utm_campaign=0230b331df-WNU_COPY_01&utm_medium=email&utm_term=0_1fcbc04421-0230b331df-236389898&mc_cid=0230b331df&mc_eid=1ad0d983d8
+ * Survey http://onlinelearningsurvey.com/covid.html
+ * Infographics https://embed.widencdn.net/pdf/plus/cengage/1yhakzkaya/higher-educations-response-to-covid19-infographic-1369680.pdf/?utm_campaign=in_movetoonline_dg_fy2021&&utm_content=1373605
+ * A Snapshot of Higher Education’s Response to the COVID-19 Pandemic https://docs.google.com/document/d/1JG5rJmOOTwNhPKWPmBZLXtnU5trS4X8ZyABJRLGNgzM/edit?fbclid=IwAR2TauoJW-odH40QkdNAzSX5QBhhtKYo-i0OtZES6hOxdXL0-aV-3i5r480
+ * Covid-19: the good news map https://covid.mehdibaha.com/en/ 
