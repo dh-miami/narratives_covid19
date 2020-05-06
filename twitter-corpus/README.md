@@ -15,4 +15,4 @@ We have different queries running, which correspond to the datasets in our 'twit
 
 The corpus of tweets consists of a list of Tweet Ids, that need to be treated with an "hydratator" in order to revocer all metadata. 
 
-
+We started collecting our dataset on April 24th 2020. For prior dates (January - April 24th), we use the [PanaceaLab dataset](https://github.com/thepanacealab/covid19_twitter), since it is one of the few that collects data in all languages. 
