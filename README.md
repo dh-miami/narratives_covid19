@@ -16,4 +16,6 @@ For more information about our project visit <https://covid.dh.miami.edu/>
 
 ## Twitter Datasets 
 
-**Version 1. Digital Narratives of Covid-19: a Twitter Dataset.** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3824950.svg)](https://doi.org/10.5281/zenodo.3824950) We have released the first version of our Twitter dataset via Zenodo. Go to [Twitter corpus](https://github.com/dh-miami/narratives_covid19/tree/master/twitter-corpus) to see criteria and the last uploads. 
+**Version 1. Digital Narratives of Covid-19: a Twitter Dataset.** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3824950.svg)](https://doi.org/10.5281/zenodo.3824950) 
+
+We have released the first version of our Twitter dataset via Zenodo. Go to [Twitter corpus](https://github.com/dh-miami/narratives_covid19/tree/master/twitter-corpus) to see criteria and the last uploads. 
