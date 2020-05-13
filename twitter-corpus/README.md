@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3824950.svg)](https://doi.org/10.5281/zenodo.3824950)
+Susanna Allés Torrent, Gimena del Rio Riande, Nidia Hernández, Jerry Bonnell, & Dieyun Song. (2020). Digital Narratives of Covid-19: a Twitter Dataset (Version 1.0) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.3824950 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3824950.svg)](https://doi.org/10.5281/zenodo.3824950)
 
 This folder contains a corpus related to Covid-19 tweets and it is organized as follows: 
 
