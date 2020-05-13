@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3824950.svg)](https://doi.org/10.5281/zenodo.3824950)
+
 This folder contains a corpus related to Covid-19 tweets and it is organized as follows: 
 
 * By Language: English, Spanish
