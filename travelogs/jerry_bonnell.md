@@ -28,4 +28,14 @@ __TODO__ Is there a server available that we can use to play around with the dat
 
 __TODO__ Need to refine further what kinds of computational studies will be conducted on the data.     
 
-## total hours: 9
+### 5/13/20 (2 hours)
+
+* Successfully logged into Susanna's server and installed Python package manager `pip3`, 
+and packages like `jupyter notebook`, `pandas`, `scikit-learn`, which we might need.
+* Set up jupyter notebook so that we can run a jupyter notebook from the server, and open 
+the notebook up in a browser on your local computer 
+  - I make use of ssh tunneling to accomplish this. Can write a tutorial later.
+  - I think this set-up is perfect for research purposes, but we may want an actual url
+    that a user can follow to visit the notebooks.  
+
+## total hours: 11
