@@ -9,5 +9,6 @@
 * 4/27/2020, 2 hours, Applied for Twitter developer account, read Twitter's research toolkit;
 Read the ""Covid-19 Twitter chatter dataset for scientific use"" website, article, frequent term, bigram, and trigram. 
 * 4/29/2020, 4 hours, went through "COVID-19-TweetIDs" and related publications; hydrated April 1 data, added new hashtags based on the COVID-19-TWEETIDS project; reviewed hydration with programming historian; read "Narrative and interpretation on Twitter," added more Twitter questions, team meeting;
+* 5/23/2020, 2 hours, caught up with all Slack messages since April 29; Read "Evaluating Language Identification Performance (https://blog.twitter.com/engineering/en_us/a/2015/evaluating-language-identification-performance.html)"; familiarized with our project Twitter corpus; ##TO DO:   read all Voyant related reading shared on Slack, start a post on hydrating Twitter data, and experiment with Voyant.
 
-## total hours 16
+## total hours 18
