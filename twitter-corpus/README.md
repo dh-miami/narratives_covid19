@@ -25,7 +25,7 @@ Folders are organized by day; in each day-folder you will find 9 different files
 * `dhcovid_YEAR-MONTH-DAY_es_fl.txt`: Dataset containing tweets geolocalized (by georeferences, by place, or by user) in South Florida.
 * `dhcovid_2020-04-24_es.txt` This dataset contains all tweets in Spanish, regardless its geolocation. 
 * `dhcovid_YEAR-MONTH-DAY_es_ar.txt`: Dataset containing tweets geolocalized (by georeferences, by place, or by user) in Argentina. 
-* `dhcovid_YEAR-MONTH-DAY_es_co.txt`: Dataset containing tweets geolocalized (by georeferences, by place, or by user) in Argentina. 
+* `dhcovid_YEAR-MONTH-DAY_es_co.txt`: Dataset containing tweets geolocalized (by georeferences, by place, or by user) in Colombia. 
 * `dhcovid_YEAR-MONTH-DAY_es_ec.txt`: Dataset containing tweets geolocalized (by georeferences, by place, or by user) in Ecuador. 
 * `dhcovid_YEAR-MONTH-DAY_es_es.txt`: Dataset containing tweets geolocalized (by georeferences, by place, or by user) in Spain.  
 * `dhcovid_YEAR-MONTH-DAY_es_mx.txt`: Dataset containing tweets geolocalized (by georeferences, by place, or by user) in Mexico. 	
