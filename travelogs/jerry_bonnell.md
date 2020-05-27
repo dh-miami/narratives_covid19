@@ -38,4 +38,10 @@ the notebook up in a browser on your local computer
   - I think this set-up is perfect for research purposes, but we may want an actual url
     that a user can follow to visit the notebooks.  
 
-## total hours: 11
+### 5/27/20 (8 hours)
+
+* Begin work on frequency analysis Python tool, which interfaces directly with the database. 
+This collection of scripts can be imported into a jupyter notebook later for obtaining
+the top frequency lists, users, etc. 
+
+## total hours: 19
