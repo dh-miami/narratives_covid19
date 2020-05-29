@@ -34,4 +34,9 @@ Voyant analysis:
 		35,503 total de palabras y 6,882 formulario de palabra única.
 		Palabra más frecuente en el corpus: covid19 (1353); coronavirus (186); casos (144); argentina (94); pandemia (94); cuarentena (70); hoy (69); salud (66); personas (62); bebe (60); pais (60); ahora (59); nombre (58); presos (54); covid (53); devoto (53); caso (52); ciro (49); positivos (49); situacion (46)
 		Comentarios: https://www.infobae.com/coronavirus/2020/04/24/coronavirus-en-argentina-a-un-bebe-santafesino-le-pusieron-covid-de-segundo-nombre/
+		
+
+## Dieyun 
+* Colombia 4/24 - 5/1 weekly analysis
+
  
