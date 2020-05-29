@@ -1,6 +1,6 @@
 List of Stopwords: 
 
-English:
+## English:
 !
 $
 %
@@ -491,7 +491,14 @@ yourselves
 z
 |
 
-Spanish:
+## Sub-list(EN) to analyze characters within the corpus, i.e. analyzing daily discourse characters
+coronavirus
+covid19
+covid
+corona
+pandemic
+
+## Spanish:
 a
 ademas
 al
@@ -931,3 +938,10 @@ vuestros
 y
 ya
 yo
+
+## Sub-list(ES) to analyze characters within the corpus, i.e. analyzing daily discourse characters
+coronavirus
+covid19
+covid
+corona
+pandemia
