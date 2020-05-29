@@ -12,6 +12,6 @@ Read the ""Covid-19 Twitter chatter dataset for scientific use"" website, articl
 * 5/23/2020, 2 hours, caught up with all Slack messages since April 29; Read ["Evaluating Language Identification Performance](https://blog.twitter.com/engineering/en_us/a/2015/evaluating-language-identification-performance.html)"; familiarized with our project Twitter corpus; ##TO DO:   read all Voyant related reading shared on Slack, start a post on hydrating Twitter data, and experiment with Voyant.
 * 5/24/2020, 3.2 hours, read ["Corpus Analysis with Voyant Tools"](https://programminghistorian.org/es/lecciones/analisis-voyant-tools), started drafting [Voyant tutoral of experimenting with the 4/28 EN FL corpus](https://covid.dh.miami.edu/wp-admin/post.php?post=339&action=edit) 
 * 5/25/2020, 2 hours, continued working on Voyant tutorial on Wordpress, read [Guidelines of Voyant](https://digihum.mcgill.ca/voyant/tools/), [Untangling Text: Voyant Tools’ Knots for Text Analysis](https://medium.com/dh-tools-for-beginners/voyant-tools-2-0-less-common-tools-for-text-analysis-a922cfcd85cb). Had to stop working due to unstable VPN connection.
-* 5/29/2020, 2 hours, wrote the [Hydrator tutorial](https://covid.dh.miami.edu/wp-admin/post.php?post=354&action=edit), post ready for review.
+* 5/29/2020, 3.8 hours, wrote the [Hydrator tutorial](https://covid.dh.miami.edu/wp-admin/post.php?post=354&action=edit), post ready for review; started working with the Colombian corpus from 4/24 - 5/1
 
-## total hours 25.2
+## total hours 27
