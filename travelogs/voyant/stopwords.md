@@ -492,6 +492,8 @@ z
 |
 
 ## Sub-list(EN) to analyze characters within the corpus, i.e. analyzing daily discourse characters
+user
+url
 coronavirus
 covid19
 covid
@@ -940,6 +942,8 @@ ya
 yo
 
 ## Sub-list(ES) to analyze characters within the corpus, i.e. analyzing daily discourse characters
+user
+url
 coronavirus
 covid19
 covid
