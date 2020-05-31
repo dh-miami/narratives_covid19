@@ -44,4 +44,12 @@ the notebook up in a browser on your local computer
 This collection of scripts can be imported into a jupyter notebook later for obtaining
 the top frequency lists, users, etc. 
 
-## total hours: 19
+### 5/31/20 (8 hours)
+
+* Finished frequency analysis Python tool (called coveet, name is WIP) 
+* Wrote a jupyter notebook demonstrating a quick visualization of the NLP statistics
+  using Plotly
+* Wrote a README documentation to understand how to work with the tool
+* Still need input regarding preprocessing of the tweet main text data
+
+## total hours: 27
