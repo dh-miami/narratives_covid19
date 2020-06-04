@@ -1,6 +1,7 @@
 List of Stopwords: 
 
 ## English:
+
 !
 $
 %
@@ -492,6 +493,7 @@ z
 |
 
 ## Sub-list(EN) to analyze characters within the corpus, i.e. analyzing daily discourse characters
+
 user
 url
 coronavirus
@@ -501,6 +503,7 @@ corona
 pandemic
 
 ## Spanish:
+
 a
 ademas
 ahora
