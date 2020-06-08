@@ -4,7 +4,8 @@ Write your notes with preceeded by the # and upload images if needed.
 
 Voyant analysis
 
-* Ecuador 4/24
+* Ecuador 04-24
+
 https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-04-24_es_ec.txt
 https://voyant-tools.org/?corpus=a058d4b3c82283c306fe62966bad3701
 
@@ -12,7 +13,7 @@ Stopwords, según lista y sumé _emoji_not_identified_u25aa_ y  _emoji_not_ident
 2,730 total de palabras y 1,021 formulario de palabra única.
 Palabra más frecuente en el corpus: covid19 (89); ecuador (26); mundo (11); casos (10); atencion (9); bioseguridad (9); coronavirus (8); emergencia (8); salud (8); medidas (7); necesitamos (7); pacientes (7); pandemia (7); quedateencasa (7); abril (6); cifras (6); disciplinaparavolver (6); guayaquil (6); hoy (6); pruebas (6)
 
-* Florida 04-24
+* Florida-English 04-24
 
 https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-04-24_en_fl.txt
 https://voyant-tools.org/?corpus=d37964d6b56065f8894e2b3a30c64248
@@ -49,6 +50,35 @@ Stopwords, según lista sumé _emoji_not_identified_u2800_ 35,503
 total de palabras y 6,882 formulario de palabra única.
 Palabra más frecuente en el corpus: covid19 (1353); coronavirus (186); casos (144); argentina (94); pandemia (94); cuarentena (70); hoy (69); salud (66); personas (62); bebe (60); pais (60); ahora (59); nombre (58); presos (54); covid (53); devoto (53); caso (52); ciro (49); positivos (49); situacion (46)
 Comentarios: https://www.infobae.com/coronavirus/2020/04/24/coronavirus-en-argentina-a-un-bebe-santafesino-le-pusieron-covid-de-segundo-nombre/
+
+* Florida-Spanish 04-24
+
+https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-04-24_es_fl.txt
+https://voyant-tools.org/?corpus=16bfabd20632637e313b6aad930d94ec
+
+Stopwords según lista, sumé: segun, via, tw, nueva, nuevos, 24abr
+4,096 total de palabras y 1,386 formulario de palabra única.
+Palabra más frecuente en el corpus: casos (22); trump (22); personas (18); cambioweb (16); muertes (15); tvv (13); cuba (12); tvvnoticias (12); miami (11); ayuda (10); nacionales (10); desinfectante (9); pruebas (9); viernes (9); internacionales (8); presidente (8); venezuela (8); eeuu (7); estado (7); expertos (7)
+
+* Perú 04-24
+
+https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-04-24_es_pe.txt
+https://voyant-tools.org/?corpus=053942114b70a5cb0ea9506fc8e7fc66
+
+Stopwords según lista, sumé: _emoji_not_identified_u25ba_, peru
+14,548 total de palabras y 3,692 formulario de palabra única.
+Palabra más frecuente en el corpus: salud (49); cuarentena (45); pacientes (40); casos (36); situacion (32); pruebas (30); mundo (25); camas (24); fallecidos (24); hospital (24); video (23); emergencia (22); region (22); dia40 (19); personas (19); quedateencasa (19); gobierno (18); morir (18); numero (18); peruana (18)
+Comentarios: https://andina.pe/agencia/noticia-coronavirus-difunden-videos-preventivos-lenguas-originarias-para-prevenir-enfermedad-794393.aspx 
+
+* México 04-24
+
+https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-04-24_es_mx.txt
+https://voyant-tools.org/?corpus=cdfff0c2f6f2011bc2a878556a9bc3b2
+
+Stopwords según lista, sumé: mexico
+108,329 total de palabras y 12,649 formulario de palabra única.
+Palabra más frecuente en el corpus: casos (372); quedateencasa (340); salud (322); medidas (255); covid19mx (253); casa (233); contingencia (230); personas (212); fase (211); pacientes (187); contagios (186); crisis (171); 4tnosdejasincomida (167); hospital (146); estado (139); nacional (139); evitar (137); gobierno (137); sanitaria (128); emergencia (123)
+
 
 * Argentina 04-25
 
