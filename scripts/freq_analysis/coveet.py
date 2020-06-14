@@ -39,8 +39,16 @@ def handle_query(args):
     args.geo = list(set(args.geo))
     start_date, end_date = args.date
     df = get_data_df(args.lang, args.geo, start_date, end_date)
-    df.to_csv(args.file)
-    print(f"wrote df to {args.file}!")
+    fname = f"dhcovid_" + \
+            f"{args.date[0].year}-{args.date[0].month}-{args.date[0].day}" + \
+            f"_to_{args.date[1].year}-{args.date[1].month}-{args.date[1].day}"
+    for l in args.lang:
+        fname += f"_{l}"
+    for g in args.geo:
+        fname += f"_{g}"
+    fname += ".csv"
+    df.to_csv(fname)
+    print(f"wrote df to {fname}!")
 
 def get_data_df(lang, geo, start_date, end_date):
     tweet_dic = {'date': [], 'lang': [], 'geo': [], 'text': [], 'hashtags': []}
@@ -94,8 +102,9 @@ def handle_nlp(args):
     elif metrics[0] == 'u':
         raise ValueError("users not supported currently")
     print(freq_df)
-    print(f"wrote freq df to {DEFAULT_NLP_FILE}!")
-    freq_df.to_csv(DEFAULT_NLP_FILE)
+    new_fname = args.file[:args.file.rfind('.')] + f"_{metrics[0]}.csv"
+    print(f"wrote freq df to {new_fname}!")
+    freq_df.to_csv(new_fname)
 
 def data2hashtags(df, top_n):
     group = df.groupby(['date'])['hashtags']
@@ -110,7 +119,6 @@ def data2hashtags(df, top_n):
             # skip empty hashtags
             if hashtags == hashtags:
                 tags_list = "".join(hashtags.replace(' ', '')).split("#")[1:]
-                print(tags_list)
                 for tag in tags_list:
                    d[tag] += 1
         counts.append(dict(Counter(d).most_common(top_n)))
@@ -159,6 +167,7 @@ def data2freq(df, ngram, top_n):
 def days_to_df(lang, geo, start_date, end_date, metric=1, top_n=10):
     lang = list(set(lang))
     geo = list(set(geo))
+    print(f"l {lang} g {geo} start {start_date} end {end_date} m {metric} top {top_n}")
     df = get_data_df(lang, geo, start_date, end_date)
     if isinstance(metric, int):
         freq_df = data2freq(df, metric, top_n)
@@ -180,7 +189,7 @@ if __name__ == "__main__":
     nlp.add_argument('-ngram', default=False, type=pos_type)
     nlp.add_argument('-users', action='store_const', const='u', default=False)
     nlp.add_argument('-hashtags', action='store_const', const='h', default=False)
-    nlp.add_argument('-file', default=DEFAULT_QUERY_FILE)
+    nlp.add_argument('-file')
     nlp.set_defaults(func=handle_nlp)
 
     # if want same day, just give same day twice
@@ -194,7 +203,6 @@ if __name__ == "__main__":
                        choices=LANG_OPS, nargs='+')
     query.add_argument('-geo', default=GEO_OPS,
                        choices=GEO_OPS, nargs='+')
-    query.add_argument('-file', default=DEFAULT_QUERY_FILE)
     query.set_defaults(func=handle_query)
 
     args = parser.parse_args()
