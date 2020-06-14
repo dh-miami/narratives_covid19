@@ -52,4 +52,17 @@ the top frequency lists, users, etc.
 * Wrote a README documentation to understand how to work with the tool
 * Still need input regarding preprocessing of the tweet main text data
 
-## total hours: 27
+### 6/13/20 (10 hours)
+
+* Discuss with Susanna and Jesus about working with the database endpoints
+* Updated coveet tool to use the database API prepared by Jesus. For now, user functionality
+  does not work anymore as the API does not currently support it. But, we have cleaner code
+  and clean tweets...also no need to input any db credentials :-)
+* Updated README
+* Uploaded frequency analysis (words, bigram, trigram, and hashtag) results from april 24 
+  to may 1 under `outputs/` directory. I present the results as a CSV where each column
+  is a top word and each row is a day. We should discuss how best to present these results. 
+* quick note on bigram/trigrams: I treat the whole tweet as context for a word, rather than
+  its immediate neighbors. This could bring up some interesting analyses. 
+
+## total hours: 37

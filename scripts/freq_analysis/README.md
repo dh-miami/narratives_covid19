@@ -73,7 +73,7 @@ Issue the following at the prompt to obtain `English` tweets written in `Florida
 $ python3 coveet.py query -g fl -l en -d 2020-05-08 2020-05-09
 ```
 
-where the results are written to a CSV file. The following will return the top 10 words using the `myquery.txt` queried results as input:
+where the results are written to a CSV file. The following will return the top 10 words using the above queried results as input:
 
 ```
 $ python3 coveet.py nlp -n 1 -t 10 -f dhcovid_2020-5-8_to_2020-5-9_en_fl.csv
