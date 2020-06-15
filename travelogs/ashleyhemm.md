@@ -7,6 +7,6 @@
 * 5/29/2020, 2 hours - update WordPress site, explore UM COVID site and APIs, catch up on Slack
 * 6/4/2020, 0.5 hours - morning meeting
 * 6/9/2020, 1 hour - researching Spanish-language plugins for WordPress
-* 6/15/2020, 3 hours - separating English stopwords into list format, separating out first week of tweets by day and uploading to Voyant, uploading into and playing with NVivo as well
+* 6/15/2020, 4.5 hours - separating English stopwords into list format, separating out first week of tweets by day and uploading to Voyant, uploading into and playing with NVivo as well, hydrating first week to play with metadata
 
-## total hours 12.5
+## total hours 14
