@@ -107,6 +107,7 @@ def handle_nlp(args):
     freq_df.to_csv(new_fname)
 
 def data2hashtags(df, top_n):
+    # TODO see if we can recycle freq code
     group = df.groupby(['date'])['hashtags']
     # list of all the top words for every day
     counts = []
@@ -133,25 +134,27 @@ def data2hashtags(df, top_n):
     # prepare the new df
     return pd.DataFrame(df_dic)
 
+
+def count_ngrams(df, ngram, col_name=None, count_dic=None):
+    # TODO generalize to chosen column
+    if count_dic is None:
+        count_dic = defaultdict(int)
+
+    itr = df if col_name is None else df[col_name]
+    for text in itr:
+        if text == text:
+            for comb in combinations(set(text.split()), ngram):
+                count_dic[tuple(sorted(comb))] += 1
+
+    return count_dic
+
+
 def data2freq(df, ngram, top_n):
     group = df.groupby(['date'])['text']
     # list of all the top words for every day
-    counts = []
-    dates = []
-
-    for n, g in group:
-        dates.append(n)
-        d = defaultdict(int)
-        for tweet in g:
-            # treating the tweet as an atomic unit
-            # skip empty tweets
-            if tweet == tweet:
-                for comb in combinations(set(tweet.split()), ngram):
-                    d[tuple(sorted(comb))] += 1
-
-        tup_values = [(' '.join(value), count)
-                      for value, count in Counter(d).most_common(top_n)]
-        counts.append(dict(tup_values))
+    counts = [dict(
+        Counter(count_ngrams(g, ngram)).most_common(top_n)) for _, g in group]
+    dates = [date for date, _ in group]
 
     df_dic = {k: [] for top in counts for k in top.keys()}
     for k in df_dic.keys():
@@ -160,8 +163,10 @@ def data2freq(df, ngram, top_n):
             if k in top:
                 df_dic[k][-1] += top[k]
     df_dic['date'] = dates
+    df = pd.DataFrame(df_dic)
+    df.rename(columns=lambda x: ' '.join(x) if x != 'date' else x, inplace=True)
     # prepare the new df
-    return pd.DataFrame(df_dic)
+    return df
 
 
 def days_to_df(lang, geo, start_date, end_date, metric=1, top_n=10):
