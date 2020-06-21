@@ -65,4 +65,12 @@ the top frequency lists, users, etc.
 * quick note on bigram/trigrams: I treat the whole tweet as context for a word, rather than
   its immediate neighbors. This could bring up some interesting analyses. 
 
-## total hours: 37
+### 6/21/20 (5 hours)
+
+* Discuss with Susanna about visualizing twitter data 
+* Wrote new jupyter notebook (`top_ngrams.ipynb`) in `freq_analysis/` folder
+  for visualizing top n-grams/hashtags per geographic area together, over a
+  range of dates, e.g. a week.
+
+
+## total hours: 42
