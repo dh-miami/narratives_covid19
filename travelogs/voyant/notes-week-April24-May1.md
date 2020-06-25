@@ -119,6 +119,53 @@ Stopwords, sumé hoy, dia, dias, pais
 1,830,486 total de palabras y 76,338 formulario de palabra única. 
 Palabra más frecuente en el corpus: covid19 (65843); casos (8361); coronavirus (7278); pandemia (4466); salud (4077); cuarentena (3783); personas (3211); quedateencasa (3186); gobierno (2904); nuevos (2850); medidas (2506); mexico (2437); crisis (2435); casa (2279); pacientes (2257); mundo (2180); gente (2054); muertes (1975); irresponsables (1789); abril (1777)
 
+* Colombia 04-26
+
+https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-04-26_es_co.txt
+https://voyant-tools.org/?corpus=a6bce3b3e51271254228eafd7a4ccc64
+
+Stopwords, sumé abril
+133,507 total de palabras y 14,789 formulario de palabra única
+Palabra más frecuente en el corpus: casos (776); colombia (360); cuarentena (352); salud (331); nuevos (294); personas (255); quedateencasa (234); recuperados (220); panama (201); pacientes (196); gobierno (193); crisis (192); pruebas (184); muertes (183); medidas (181); fallecidos (179); atencion (168); casa (158); emergencia (158); vida (158)
+
+* Ecuador 04-26
+
+https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-04-26_es_ec.txt
+https://voyant-tools.org/?corpus=238831e3ed867e7afd8bc0c402ad1a4f
+
+Stopwords
+42,899 total de palabras y 7,047 formulario de palabra única
+Palabra más frecuente en el corpus: cuarentena (148); salud (107); quedateencasa (104); casos (102); emergencia (87); gobierno (82); mascarilla (80); vida (77); disciplinaparavolver (76); quito (72); guayaquil (71); medidas (71); casa (69); personas (68); aislamiento (66); virus (66); sanitaria (65); pacientes (63); mundo (61); atencion (58)
+
+* España 04-26
+
+https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-04-26_es_es.txt
+https://voyant-tools.org/?corpus=8d38946f12ef948e68f29f9318afe667
+
+Stopwords, sumé España, Espana
+186,557 total de palabras y 19,376 formulario de palabra única
+Palabra más frecuente en el corpus: irresponsables (592); niños (538); crisis (398); salir (387); gobierno (384); gente (350); cuarentena (347); calle (309); ninosenlacalle (307); confinamiento (290); padres (271); personas (264); ver (240); casos (225); casa (203); fallecidos (202); medidas (198); test (188); tambien (179); despues (177)
+
+* México 04-26
+
+https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-04-26_es_mx.txt
+https://voyant-tools.org/?corpus=c0ef91d3897950d3d8f14cd91775b392
+
+Stopwords, sumé covid19mx, mexico, méxico, covid19mexico, abril, right_arrow, casos
+249,795 total de palabras y 19,578 formulario de palabra única
+Palabra más frecuente en el corpus: salud (855); quedateencasa (842); personas (495); medidas (489); contingencia (445); contagios (424); pacientes (402); casa (369); confirmados (368); positivos (335); gobierno (319); muertes (311); evitar (309); personal (308); defunciones (304); cuarentena (300); nuevos (299); medicos (298); nacional (282); contagio (276)
+
+* Perú 04-26
+
+https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-04-26_es_pe.txt
+https://voyant-tools.org/?corpus=df2a0334a3525b4e74770bb6ad84fa2a
+
+Stopwords, sumé peru, perú, _emoji_not_identified_U25BA_, casos, 27517, dia42
+38,957 total de palabras y 6,965 formulario de palabra única
+Palabra más frecuente en el corpus: cuarentena (153); salud (94); personas (91); vizcarra (89); pacientes (73); mundo (72); quedateencasa (69); piura (68); gobierno (63); pruebas (58); fallecidos (55); presidente (49); infectados (48); muertos (47); uci (45); bolivia (44); positivos (44); cerveza (41); gente (40); emergencia (39)
+Comentarios: https://libero.pe/ocio/1555674-facebook-viral-coronavirus-ultimas-noticias-hoy-castilla-piura-pobladores-largas-colas-calles-comprar-cajas-cerveza-covid-19-video
+
+
 		
 ## Dieyun 
 
