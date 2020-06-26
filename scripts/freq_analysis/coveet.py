@@ -7,6 +7,7 @@ from itertools import combinations
 from collections import defaultdict, Counter
 from nltk.corpus import stopwords
 from tqdm import tqdm
+import IPython
 
 BASE_QUERY_URL = 'https://covid.dh.miami.edu/get/?'
 DEFAULT_QUERY_FILE = "query.csv"
@@ -17,8 +18,9 @@ LANG_OPS = ['en', 'es']
 # mexico, peru
 GEO_OPS = ['fl', 'ar', 'co', 'ec', 'es', 'mx', 'pe']
 
-STOPWORDS = stopwords.words('english') + stopwords.words('spanish') + \
+DEFAULT_STOPWORDS = stopwords.words('english') + stopwords.words('spanish') + \
         list(string.punctuation) + ['rt', 'via', '…', '’', 'covid19']
+COMMENT_TOKEN = '//'
 
 def pos_type(string):
     value = int(string)
@@ -35,10 +37,21 @@ def date_type(string):
 
 
 def handle_query(args):
+    # handle stopwords
+    stopwords = DEFAULT_STOPWORDS
+    if args.stopwords is not None:
+        stopwords = []
+        # go for each file in stopwords
+        for fn in args.stopwords:
+            with open(fn, 'r') as f:
+                for line in f.readlines():
+                    if not line.startswith(COMMENT_TOKEN):
+                        stopwords.extend(line.split())
+
     args.lang = list(set(args.lang))
     args.geo = list(set(args.geo))
     start_date, end_date = args.date
-    df = get_data_df(args.lang, args.geo, start_date, end_date)
+    df = get_data_df(args.lang, args.geo, start_date, end_date, stopwords)
     fname = f"dhcovid_" + \
             f"{args.date[0].year}-{args.date[0].month}-{args.date[0].day}" + \
             f"_to_{args.date[1].year}-{args.date[1].month}-{args.date[1].day}"
@@ -50,7 +63,7 @@ def handle_query(args):
     df.to_csv(fname)
     print(f"wrote df to {fname}!")
 
-def get_data_df(lang, geo, start_date, end_date):
+def get_data_df(lang, geo, start_date, end_date, stopwords=DEFAULT_STOPWORDS):
     tweet_dic = {'date': [], 'lang': [], 'geo': [], 'text': [], 'hashtags': []}
     for l in lang:
         for g in geo:
@@ -64,7 +77,7 @@ def get_data_df(lang, geo, start_date, end_date):
                     hashtags = [w for w in words if w[0] == '#']
                     clean = [w for w in words if w[0] != '@'
                              and w != 'URL' and w[0] != '#'
-                             and w not in STOPWORDS]
+                             and w not in stopwords]
                     tweet_dic['date'].append(date)
                     tweet_dic['lang'].append(l)
                     tweet_dic['geo'].append(g)
@@ -120,10 +133,11 @@ def data2hashtags(df, top_n):
             # skip empty hashtags
             if hashtags == hashtags:
                 tags_list = "".join(hashtags.replace(' ', '')).split("#")[1:]
+                # delete any empty hashtags
+                tags_list = [tag for tag in tags_list if tag != '']
                 for tag in tags_list:
                    d[tag] += 1
         counts.append(dict(Counter(d).most_common(top_n)))
-
     df_dic = {k:[] for top in counts for k in top.keys()}
     for k in df_dic.keys():
         for top in counts:
@@ -169,20 +183,6 @@ def data2freq(df, ngram, top_n):
     return df
 
 
-def days_to_df(lang, geo, start_date, end_date, metric=1, top_n=10):
-    lang = list(set(lang))
-    geo = list(set(geo))
-    print(f"l {lang} g {geo} start {start_date} end {end_date} m {metric} top {top_n}")
-    df = get_data_df(lang, geo, start_date, end_date)
-    if isinstance(metric, int):
-        freq_df = data2freq(df, metric, top_n)
-    elif metric == 'h':
-        freq_df = data2hashtags(df, top_n)
-    elif metric == 'u':
-        raise ValueError("users not supported currently")
-
-    return freq_df
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description='a very basic interface to the digital narratives database',
@@ -208,6 +208,7 @@ if __name__ == "__main__":
                        choices=LANG_OPS, nargs='+')
     query.add_argument('-geo', default=GEO_OPS,
                        choices=GEO_OPS, nargs='+')
+    query.add_argument('-stopwords', default=None, nargs='+')
     query.set_defaults(func=handle_query)
 
     args = parser.parse_args()

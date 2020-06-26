@@ -24,18 +24,31 @@ The `query` function has the following options:
 ```
 usage: coveet.py query [-h] [-date DATE DATE] [-lang {en,es} [{en,es} ...]]
                        [-geo {fl,ar,co,ec,es,mx,pe} [{fl,ar,co,ec,es,mx,pe} ...]]
+                       [-stopwords STOPWORDS [STOPWORDS ...]]
 
 optional arguments:
   -h, --help            show this help message and exit
   -date DATE DATE
   -lang {en,es} [{en,es} ...]
   -geo {fl,ar,co,ec,es,mx,pe} [{fl,ar,co,ec,es,mx,pe} ...]
+  -stopwords STOPWORDS [STOPWORDS ...]
 ```
 
 * `-h` to display the help menu.
 * `-date <from_day> <to_day>` queries the database for all tweets with dates between `from_day` and `to_day` (inclusive), where dates are given as `yyyy-mm-dd`.
 * `-lang` queries the database based on language criteria. Only two languages are supported here, `en` for English and `es` for Spanish. Both can be provided at once if the user wishes to query for tweets in both languages at once.
 * `-geo` queries the database based on geographic location criteria. The following locations are supported: `fl` for Miami and South Florida, `ar` for Argentina, `co` for Columbia, `ec` for Ecuador, `es` for Spain, `mx` for Mexico, and `pe` for Peru. Many locations can be provided at once.
+* `-stopwords` for supplying a list of filenames containing stopwords. Each word is given
+on a new line and comments can be specified using `//`. A sample stopwords file has
+the following format:
+
+```
+// i
+me
+// this is a comment
+my
+myself
+```
 
 The results are written to a CSV file with form `dhcovid_yyyy-mm-dd_to_yyyy_mm-dd_lang_geo.csv`, based on the query given. CSV files can be read in using Excel or via pandas with `read_csv()`.
 
