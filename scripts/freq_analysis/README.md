@@ -100,17 +100,3 @@ The following results are produced using a pandas DataFrame. It is also saved to
 1  36           0        28    0   43          0      33  ...      0           38     32        30   28    25 2020-05-09
 ```
 
-## API
-
-`coveet` exposes an API for programatically querying the database and obtaining the results as a `pandas` DataFrame. The following will query all English tweets between April 27 and May 3 in Florida. It makes use of the `datetime` object from Python:
-
-```python
-start = datetime(year=2020, month=4, day=27) # start date
-end = datetime(year=2020, month=5, day=3)    # end date
-df = days_to_df(
-     lang=['en'], geo=['fl'], start_date=start, end_date=end, metric=2, top_n=10)
-# do stuff with df...
-```
-
-Each row corresponds to a day, and each column corresponds to a top word(s) or user.
-
