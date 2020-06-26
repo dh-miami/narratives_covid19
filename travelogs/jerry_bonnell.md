@@ -72,5 +72,13 @@ the top frequency lists, users, etc.
   for visualizing top n-grams/hashtags per geographic area together, over a
   range of dates, e.g. a week.
 
+### 6/26/20 (4 hours)
 
-## total hours: 42
+* Team meeting 
+* Updated jupyter notebooks and coveet script to incorporate stopwords
+* Fixed SettingWithCopy error in jupyter notebook  
+* Jupyter notebook `top_ngrams` can now do top hashtags 
+* Improvements to jupyter notebook `freq_viz_race`
+* Updated readme 
+
+## total hours: 46
