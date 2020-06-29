@@ -1,4 +1,4 @@
-# coveet: frequency analysis
+# coveet: frequency analysis tool
 
 `coveet` is a Python application to interface with the digital narratives database
 API for querying basic statistics and NLP information like word frequencies, bigrams,
@@ -64,14 +64,16 @@ optional arguments:
   -ngram NGRAM
   -users
   -hashtags
+  -mutex
   -file FILE
 ```
 
 * `-h` to display the help menu.
 * `-top <n>` to fetch only the top `n` results.
+* `-ngram <num>` to query for n-grams where n is given by `num`. Multiple n-grams can be given at once.
 * `-users` to query for top users.
 * `-hashtags` to query for hashtags.
-* `-ngram <num>` to query for n-grams where n is given by `num`. Multiple n-grams can be given at once.
+* `-mutex` is a preprocessing setting to filter out words/hashtags that are not unique to a location-language pair. For example, for an input file that contains information about `mx-es`, `es-es`, and `fl-es`, `mx-es` rows will be filtered to contain words/hashtags that are unique to that pair. Likewise for `es-es` and `fl-es`.
 * `-file <file>` the file containing the results of the query to perform NLP analysis on.
 
 ## Prerequisites

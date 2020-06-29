@@ -81,4 +81,12 @@ the top frequency lists, users, etc.
 * Improvements to jupyter notebook `freq_viz_race`
 * Updated readme 
 
-## total hours: 46
+### 6/29/20 (3 hours) 
+
+* Some coveet code housekeeping
+* Updated coveet and jupyter notebooks with unique word function; interesting to 
+  note that most of these "unique" words turn out to be typos, also fl-es is 
+  mainly advertisements 
+* Update readme    
+
+## total hours: 49
