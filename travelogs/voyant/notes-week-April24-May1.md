@@ -100,6 +100,17 @@ Stopwords
 Palabra más frecuente en el corpus: covid19 (44117); coronavirus (4682); casos (4550); pandemia (2938); salud (2683); quedateencasa (2415); personas (2257); crisis (1840); gobierno (1757); dia (1755); hoy (1748); nuevos (1687); cuarentena (1680); pais (1661); medidas (1599); casa (1561); mundo (1559); pacientes (1506); muertes (1251); abril (1150)
 Comentarios: https://www.univision.com/local/nueva-york-wxtv/muere-por-coronavirus-la-bebe-de-5-meses-de-un-bombero-de-nueva-york https://www.express.co.uk/news/world/1273905/kim-jong-un-dead-kim-jong-un-health-latest-kim-jong-un-train-north-korea-news
 
+* Florida-Spanish 04-25
+
+https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-04-25_es_fl.txt
+https://voyant-tools.org/?corpus=fc7a445596cc048ec8c3e06aed599e11
+
+Stopwords + miami, florida, sabado, 24abr, 25abr, cambioweb
+5,733 total de palabras y 1,702 formulario de palabra única.
+Palabra más frecuente en el corpus: casos (25); cuba (21); internacionales (21); personas (19); muertes (16); trump (16); nuevos (13); tvvnoticias (13); medicos (12); positivos (11); video (11); virus (11); contagiados (10); crisis (10); fallecidos (10); muertos (10); salud (10); total (10); mundo (9); plan (9)
+Comentarios: https://www.eldiario.es/sociedad/Ultima-hora-coronavirus-mundo-Espana-1-julio_13_1000679924_45722.html
+
+
 * Argentina 04-26
 
 https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-04-26_es_ar.txt
@@ -146,6 +157,17 @@ Stopwords, sumé España, Espana
 186,557 total de palabras y 19,376 formulario de palabra única
 Palabra más frecuente en el corpus: irresponsables (592); niños (538); crisis (398); salir (387); gobierno (384); gente (350); cuarentena (347); calle (309); ninosenlacalle (307); confinamiento (290); padres (271); personas (264); ver (240); casos (225); casa (203); fallecidos (202); medidas (198); test (188); tambien (179); despues (177)
 
+
+* Florida-Spanish 04-26
+
+https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-04-26_es_fl.txt
+https://voyant-tools.org/?corpus=f9950949a6d32aede4186e199f71aad4
+
+Stopwords + miami, florida, eeuu, domingo, lunes, sabado, 24abr, 25abr, cambioweb, 26abr, internacionales, casos
+5,071 total de palabras y 1,625 formulario de palabra única.
+Palabra más frecuente en el corpus: internacionales (16); muertes (15); salud (12); tvvnoticias (12); cuba (11); nuevos (11); personas (11); venezuela (11); estado (10); medicos (10); fallecidos (9); gobierno (9); trump (9); cifra (8); colombia (8); estados (8); maduro (8); muertos (8); mundo (8); nacionales (8)
+Comentarios: https://apnews.com/c16f8711a4d6f9ac3088f9b51078991a
+
 * México 04-26
 
 https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-04-26_es_mx.txt
@@ -164,6 +186,10 @@ Stopwords, sumé peru, perú, _emoji_not_identified_U25BA_, casos, 27517, dia42
 38,957 total de palabras y 6,965 formulario de palabra única
 Palabra más frecuente en el corpus: cuarentena (153); salud (94); personas (91); vizcarra (89); pacientes (73); mundo (72); quedateencasa (69); piura (68); gobierno (63); pruebas (58); fallecidos (55); presidente (49); infectados (48); muertos (47); uci (45); bolivia (44); positivos (44); cerveza (41); gente (40); emergencia (39)
 Comentarios: https://libero.pe/ocio/1555674-facebook-viral-coronavirus-ultimas-noticias-hoy-castilla-piura-pobladores-largas-colas-calles-comprar-cajas-cerveza-covid-19-video
+
+* Argentina 04-27
+
+
 
 
 		

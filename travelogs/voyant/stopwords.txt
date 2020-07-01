@@ -1,7 +1,7 @@
-Spanish Stopwords 
-
 user
 url
+segun
+según
 coronavirus
 covid19
 covid
@@ -552,3 +552,10 @@ yo
 98   
 99
 2020
+lunes
+martes
+miercoles
+jueves
+viernes
+sabado
+domingo
