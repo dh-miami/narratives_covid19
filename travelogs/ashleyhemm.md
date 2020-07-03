@@ -10,5 +10,5 @@
 * 6/15/2020, 4.5 hours - separating English stopwords into list format, separating out first week of tweets by day and uploading to Voyant, uploading into and playing with NVivo as well, hydrating first week to play with metadata
 * 6/17/2020, 4 hours - exploring the 4/24 hydrated, cleaned tweets as a test dataset in Jupyter using Empath and Pandas
 * 6/25/2020, 1.5 hours - morning meeting, cleaning and uploading notes
-* 7/3/2020, 1 hour - editing Nidia's article, catching up on Slack
-## total hours 20
+* 7/3/2020, 2 hour - editing Nidia's article, catching up on Slack
+## total hours 21
