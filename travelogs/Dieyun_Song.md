@@ -16,4 +16,5 @@ Read the ""Covid-19 Twitter chatter dataset for scientific use"" website, articl
 * 6/4/2020, 1 hour, team meeting and explored Twitter corpus
 * 6/22/2020, 3 hours, read [How did Twitter react to the Coronavirus pandemic?](https://towardsdatascience.com/how-did-twitter-react-to-the-coronavirus-pandemic-2857592b449a), [NLP Text Visualization & Twitter Sentiment Analysis in R](https://medium.com/swlh/nlp-text-visualization-twitter-sentiment-analysis-in-r-65b14240258f), took notes on potential R packages, caught up with Slack messages, read through Voyant notes on Github.
 * 7/4/2020, 3 hours, Lepage grant proposal
-## total hours 34 
+* 7/6/2020, 2 hours, read through and experimented with Jerry's scripts
+## total hours 36
