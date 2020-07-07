@@ -230,33 +230,58 @@ Palabra más frecuente en el corpus: crisis (17); cuba (15); hospital (14); vene
 
 * Argentina 04-29
 
+https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-04-29_es_ar.txt
+https://voyant-tools.org/?corpus=99e3a641a84973922ff89e781dfefb4e
+
+Stopwords + argentina, caso, nuevo
+60,987 total de palabras y 9,633 formulario de palabra única. Densidad del vocabulario 0.158. Palabra más frecuente en el corpus: salud (131); presos (120); muertes (86); gobierno (84); situacion (81); cuarentena (79); positivo (74); virus (70); pacientes (67); mundo (61); test (60); medidas (58); muertos (58); positivos (57); trabajo (53); uruguay (52); brasil (51); confirmados (51); emergencia (51); crisis (50)
+
+
 * Florida-Spanish 04-29
+
+https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-04-29_es_fl.txt
+https://voyant-tools.org/?corpus=d2ceb8bdfd63a716e39dd4d12cf7d45a
+
+Stopwords + 29abr, eeuu, florida, tvv, 28abr, cambioweb, despues, via
+6,876 total de palabras y 1,966 formulario de palabra única.
+Densidad del vocabulario 0.286. Palabra más frecuente en el corpus: internacionales (27); venezuela (20); muertes (17); hospital (14); crisis (13); nacionales (13); cuba (12); gobierno (12); parte (12); ayuda (11); contagios (11); trump (11); evnews (10); medidas (9); pruebas (9); vacuna (9); colombia (8); informa (8); medio (8); miami (8)
 
 * Argentina 04-30
 
+https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-04-30_es_ar.txt
+https://voyant-tools.org/?corpus=734a639980ef5f3548bfb82b7156888b
+
+Stopwords + argentina, caso, nuevo
+63,032 total de palabras y 9,876 formulario de palabra única. Densidad del vocabulario 0.157. Palabra más frecuente en el corpus: presos (123); salud (112); positivos (87); mundo (85); cuarentena (83); uruguay (78); situacion (71); pacientes (69); gobierno (68); hospital (63); tiempos (60); virus (59); provincia (56); quedateencasa (56); trabajo (55); ciudad (53); crisis (53); positivo (53); muertes (52); informacion (50)
+
 * Florida-Spanish 04-30
 
-* Argentina 06-26
+https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-04-30_es_fl.txt
+https://voyant-tools.org/?corpus=bf9f5b30281a6eeafe2218930b1db2bd
 
-* Florida-Spanish 06-26
+Stopwords + 29abr, eeuu, florida, tvv, 30abr, cambioweb, despues, via, tvvnoticias, evnews
+7,033 total de palabras y 2,032 formulario de palabra única. Densidad del vocabulario 0.289. Palabra más frecuente en el corpus: muertes (21); crisis (16); cuba (16); tratamiento (14); venezuela (14); españa (13); remdesivir (13); contagios (11); cuarentena (11); miami (11); trump (11); ayuda (10); gobierno (10); pacientes (10); antiviral (9); posible (9); universidad (9); ayudar (8); colombia (8); estado (8)
 
-* Argentina 06-27
-
-* Florida-Spanish 06-27
-
-* Argentina 06-28
-
-* Florida-Spanish 06-28
-
-* Argentina 06-29
-
-* Florida-Spanish 06-29
+************************************************
 
 * Argentina 06-30
 
+https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-06-30_es_ar.txt
+https://voyant-tools.org/?corpus=2214038bc21653e04c94df109f025ed3
+
+Stopwords + argentina, caso, nuevo, tres
+62,051 total de palabras y 9,514 formulario de palabra única. Densidad del vocabulario 0.153. Palabra más frecuente en el corpus: positivo (168); salud (125); cuarentena (102); pacientes (81); plasma (76); situacion (76); virus (76); provincia (71); recuperados (71); not (70); positivos (69); muertes (63); party (60); fiesta (58); rioja (57); centro (55); medidas (54); mundo (54); contagios (51); costa (48)
+
 * Florida-Spanish 06-30
 
+https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-04-30_es_fl.txt
+https://voyant-tools.org/?corpus=eff4e2493ca65fe8bbd760d48b65a122
+
+Stopwords + 30jun, eeuu, florida, tvv, 30abr, cambioweb, despues, via, tvvnoticias, evnews
+4,140 total de palabras y 1,429 formulario de palabra única. Densidad del vocabulario 0.345. Palabra más frecuente en el corpus: internacionales (24); nacionales (23); politica (16); venezuela (11); miami (10); maduro (9); casi (7); dolares (7); prueba (7); traves (7); diarios (6); medidas (6); millones (6); nacional (6); numero (6); positivo (6); autoridades (5); cifra (5); contagios (5); cuarentena (5)
+
 * Argentina 07-01
+
 
 * Florida-Spanish 07-01
 
@@ -264,16 +289,39 @@ Palabra más frecuente en el corpus: crisis (17); cuba (15); hospital (14); vene
 
 * Florida-Spanish 07-02
 
-* Argentina all until 07-02
+* Argentina 07-03
+
+* Florida-Spanish 07-03
+
+* Argentina 07-04
+
+* Florida-Spanish 07-04
+
+* Argentina 07-05
+
+* Florida-Spanish 07-05
+
+* Argentina 07-06
+
+* Florida-Spanish 07-06
 
 
+* Argentina all until 07-06
 
-* Florida-Spanish all until 07-02
+https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_all-until-2020-07-06_es_ar.txt
+https://voyant-tools.org/?corpus=a3ac4febe2c23c7e1c858b1ee1743a44
+
+Stopwords + argentina, caso, nuevo, tres, positivos, positivo, provincia, nuevo, ciudad, nuevos, traves, santa, san, cordoba, buenos, aca, vez, right_arrow
+4,134,149 total de palabras y 114,923 formulario de palabra única. Densidad del vocabulario 0.028. Palabra más frecuente en el corpus: salud (8228); cuarentena (8189); situacion (5075); muertes (4789); pacientes (4529); gobierno (4015); virus (4007); test (3878); uruguay (3762); contagios (3722); confirmados (3487); muertos (3391); hospital (3277); casa (3199); vacuna (2932); medidas (2771); primer (2758); brasil (2673); tiempos (2644); informe (2638)
 
 
+* Florida-Spanish all until 07-06
 
+https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_all-until-2020-07-06_es_fl.txt
+https://voyant-tools.org/?corpus=3a6084b996b3a4e16122c47478d12813
 
-
+Stopwords + eeuu, florida, tvv, 30abr, cambioweb, despues, via, tvvnoticias, evnews
+314,775 total de palabras y 23,332 formulario de palabra única. Densidad del vocabulario 0.074. Palabra más frecuente en el corpus: venezuela (692); contagios (691); muertes (691); salud (657); internacionales (535); fallecidos (474); miami (465); nacionales (461); cuba (448); mundo (420); positivo (408); estados (395); pruebas (392); horas (391); crisis (384); trump (378); cuarentena (373); nuevo (366); cifra (365); vacuna (356)
 		
 ## Dieyun 
 
