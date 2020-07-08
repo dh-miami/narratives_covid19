@@ -282,8 +282,14 @@ Stopwords + 30jun, eeuu, florida, tvv, 30abr, cambioweb, despues, via, tvvnotici
 
 * Argentina 07-01
 
+https://covid.dh.miami.edu/twitter-texts/dhcovid_texts_2020-06-30_es_ar.txt
+https://voyant-tools.org/?corpus=a77e6257bc6f81d20cee535507247638
+
+Stopwords + traves, julio, ciudad, nuevo, argentina, caso
+47,245 total de palabras y 7,809 formulario de palabra única. Densidad del vocabulario 0.165. Palabra más frecuente en el corpus: positivo (121); positivos (108); cuarentena (90); salud (87); muertes (74); contagios (66); situacion (65); virus (56); lasvidastrabajadorasimportan (55); pacientes (55); provincia (47); horas (45); vacuna (45); plasma (43); informe (39); uruguay (38); gobierno (37); casa (36); fallecidos (36); trabajadores (36)
 
 * Florida-Spanish 07-01
+
 
 * Argentina 07-02
 
