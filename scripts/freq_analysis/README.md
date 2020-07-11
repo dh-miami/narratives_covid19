@@ -1,4 +1,4 @@
-# coveet: frequency analysis tool
+# coveet: frequency analysis tool [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/dh-miami/narratives_covid19/master)
 
 `coveet` is a Python application to interface with the digital narratives database
 API for querying basic statistics and NLP information like word frequencies, bigrams,
