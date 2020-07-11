@@ -6,21 +6,14 @@ from datetime import datetime, timedelta
 from functools import reduce
 from itertools import combinations
 from collections import defaultdict, Counter
-from nltk.corpus import stopwords
 from tqdm import tqdm
 import IPython
 
 BASE_QUERY_URL = 'https://covid.dh.miami.edu/get/?'
-DEFAULT_QUERY_FILE = "query.csv"
-DEFAULT_NLP_FILE = "nlp.csv"
-
 LANG_OPS = ['en', 'es']
 # geography options: florida, argentina, columbia, ecuador, spain,
 # mexico, peru
 GEO_OPS = ['fl', 'ar', 'co', 'ec', 'es', 'mx', 'pe']
-
-DEFAULT_STOPWORDS = stopwords.words('english') + stopwords.words('spanish') + \
-        list(string.punctuation) + ['rt', 'via', '…', '’', 'covid19']
 COMMENT_TOKEN = '//'
 
 def pos_type(string):
@@ -39,7 +32,6 @@ def date_type(string):
 
 def handle_query(args):
     # handle stopwords
-    stopwords = DEFAULT_STOPWORDS
     if args.stopwords is not None:
         stopwords = []
         # go for each file in stopwords
@@ -48,6 +40,8 @@ def handle_query(args):
                 for line in f.readlines():
                     if not line.startswith(COMMENT_TOKEN):
                         stopwords.extend(line.split())
+    else:
+        raise ValueError("must specify at least one stopwords file!")
 
     args.lang = list(set(args.lang))
     args.geo = list(set(args.geo))
@@ -64,7 +58,7 @@ def handle_query(args):
     df.to_csv(fname)
     print(f"wrote df to {fname}!")
 
-def get_data_df(lang, geo, start_date, end_date, stopwords=DEFAULT_STOPWORDS):
+def get_data_df(lang, geo, start_date, end_date, stopwords):
     tweet_dic = {'date': [], 'lang': [], 'geo': [], 'text': [], 'hashtags': []}
     for l in lang:
         for g in geo:

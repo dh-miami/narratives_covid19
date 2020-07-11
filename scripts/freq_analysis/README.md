@@ -2,8 +2,7 @@
 
 `coveet` is a Python application to interface with the digital narratives database
 API for querying basic statistics and NLP information like word frequencies, bigrams,
-trigrams, top users, etc. It also exposes its own API which returns a `pandas`
-DataFrame object so that the results can be used in downstream NLP experiments.
+trigrams, top users, etc.
 
 ```
 usage: coveet.py [-h] {query,nlp} ...
@@ -78,14 +77,19 @@ optional arguments:
 
 ## Prerequisites
 
-There may be some Python dependencies that are not available on your computer. Use `pip3` (or your Python package manager) to install them.
+A `requirements.txt` file is provided in this directory with the packages
+you need to install. You can do the following at the prompt to install them:
+
+```
+$ pip3 install -r requirements.txt
+```
 
 ## Example usage
 
-Issue the following at the prompt to obtain `English` tweets written in `Florida` between the dates `May 8, 2020` and `May 9, 2020`:
+Issue the following at the prompt to obtain `English` tweets written in `Florida` between the dates `May 8, 2020` and `May 9, 2020`. This assumes two stopwords files `stopwords_en.txt` and `stopwords_es.txt` are available (sample ones are provided in this directory).
 
 ```c
-$ python3 coveet.py query -g fl -l en -d 2020-05-08 2020-05-09
+$ python3 coveet.py query -g fl -l en -d 2020-05-08 2020-05-09 -s stopwords_en.txt stopwords_es.txt
 ```
 
 where the results are written to a CSV file. The following will return the top 10 words using the above queried results as input:
