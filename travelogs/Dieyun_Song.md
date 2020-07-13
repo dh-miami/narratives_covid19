@@ -17,4 +17,6 @@ Read the ""Covid-19 Twitter chatter dataset for scientific use"" website, articl
 * 6/22/2020, 3 hours, read [How did Twitter react to the Coronavirus pandemic?](https://towardsdatascience.com/how-did-twitter-react-to-the-coronavirus-pandemic-2857592b449a), [NLP Text Visualization & Twitter Sentiment Analysis in R](https://medium.com/swlh/nlp-text-visualization-twitter-sentiment-analysis-in-r-65b14240258f), took notes on potential R packages, caught up with Slack messages, read through Voyant notes on Github.
 * 7/4/2020, 3 hours, Lepage grant proposal
 * 7/6/2020, 2 hours, read through and experimented with Jerry's scripts
-## total hours 36
+* 7/7/2020, 0.5 hours, installed Anaconda 
+* 7/13/2020, 1.8 hours, tried to run top_ngrams and freq_viz_race and Jupyter says it couldn't open them. Tried to install packages in requirement.txt and couldn't run the command in Jupyter, neither. Probably didn't try the right place.
+## total hours 38.3
