@@ -19,4 +19,6 @@ Read the ""Covid-19 Twitter chatter dataset for scientific use"" website, articl
 * 7/6/2020, 2 hours, read through and experimented with Jerry's scripts
 * 7/7/2020, 0.5 hours, installed Anaconda 
 * 7/13/2020, 1.8 hours, tried to run top_ngrams and freq_viz_race and Jupyter says it couldn't open them. Tried to install packages in requirement.txt and couldn't run the command in Jupyter, neither. Probably didn't try the right place.
-## total hours 38.3
+* 7/14/2020, 3.5 hours, play with the scripts, workshop on Jerry's scripts, uploading and sharing conference recording. 
+## total hours 41.8
+
