@@ -89,4 +89,15 @@ the top frequency lists, users, etc.
   mainly advertisements 
 * Update readme    
 
-## total hours: 49
+### 7/17/20 (12 hours)
+
+* concordance views added to jupyter notebook 
+* jupyter notebook updates for workshop preparation and after based on comments
+* looked into jupyter solutions in the cloud: binder, binderhub, jupyterhub, etc..
+* workshop preparation 
+* update `count_ngrams()` to include a mode that retrieves n-grams according to
+  formal definition 
+* Update readme  
+
+
+## total hours: 61
