@@ -2,6 +2,7 @@ import argparse
 import requests
 import string
 import pandas as pd
+import sys
 from datetime import datetime, timedelta
 from functools import reduce
 from itertools import combinations
@@ -32,8 +33,8 @@ def date_type(string):
 
 def handle_query(args):
     # handle stopwords
+    stopwords = []
     if args.stopwords is not None:
-        stopwords = []
         # go for each file in stopwords
         for fn in args.stopwords:
             with open(fn, 'r') as f:
@@ -41,7 +42,7 @@ def handle_query(args):
                     if not line.startswith(COMMENT_TOKEN):
                         stopwords.extend(line.split())
     else:
-        raise ValueError("must specify at least one stopwords file!")
+        print("warning: not using a stopwords file", file=sys.stderr)
 
     args.lang = list(set(args.lang))
     args.geo = list(set(args.geo))
@@ -50,10 +51,12 @@ def handle_query(args):
     fname = f"dhcovid_" + \
             f"{args.date[0].year}-{args.date[0].month}-{args.date[0].day}" + \
             f"_to_{args.date[1].year}-{args.date[1].month}-{args.date[1].day}"
-    for l in args.lang:
+    for l in sorted(args.lang):
         fname += f"_{l}"
-    for g in args.geo:
+    for g in sorted(args.geo):
         fname += f"_{g}"
+    if len(stopwords) == 0:
+        fname += f"_no-stopwords"
     fname += ".csv"
     df.to_csv(fname)
     print(f"wrote df to {fname}!")
@@ -121,15 +124,19 @@ def handle_nlp(args):
             lambda x : set(x[col_name]) & vocab_dic[(x['geo'], x['lang'])],
             result_type='reduce', axis=1)
 
-    freq_df = data2freq(df, metrics[0], args.top, text_col_name=col_name)
+    freq_df = data2freq(df, metrics[0], args.top, args.consecutive,
+        text_col_name=col_name)
 
-    new_fname = args.file[:args.file.rfind('.')] + f"_{metrics[0]}.csv"
+    new_fname = args.file[:args.file.rfind('.')] + f"_{metrics[0]}"
+    if args.consecutive:
+        new_fname += "consec"
+    new_fname += ".csv"
     print(freq_df.head())
     print(f"wrote freq df to {new_fname}!")
     freq_df.to_csv(new_fname)
 
 
-def count_ngrams(df, ngram, col_name=None, count_dic=None):
+def count_ngrams(df, ngram, consecutive, col_name=None, count_dic=None):
     # assumes the column identified by col_name is a tokenized list of words
     if count_dic is None:
         count_dic = defaultdict(int)
@@ -137,9 +144,15 @@ def count_ngrams(df, ngram, col_name=None, count_dic=None):
     itr = df if col_name is None else df[col_name]
     for text in itr:
         if text == text:
-            for comb in combinations(set(text), ngram):
-                count_dic[tuple(sorted(comb))] += 1
-
+            if consecutive:
+                # traditional approach to getting n-grams
+                for i in range(len(text) - ngram + 1):
+                    window = text[i:i+ngram]
+                    count_dic[tuple(sorted(window))] += 1
+            else:
+                # treating entire tweet as context
+                for comb in combinations(set(text), ngram):
+                    count_dic[tuple(sorted(comb))] += 1
     return count_dic
 
 
@@ -172,12 +185,12 @@ def uniq_vocab_by_gl(df, text_col_name='text'):
 
 
 
-def data2freq(df, ngram, top_n, date_col_name='date', text_col_name='text'):
+def data2freq(df, ngram, top_n, csc, date_col_name='date', text_col_name='text'):
     uniq_vocab_by_gl(df, text_col_name)
     group = df.groupby([date_col_name])[text_col_name]
     # list of all the top words for every day
     counts = [dict(
-        Counter(count_ngrams(g, ngram)).most_common(top_n)) for _, g in group]
+        Counter(count_ngrams(g, ngram, csc)).most_common(top_n)) for _, g in group]
     dates = [date for date, _ in group]
 
     df_dic = {k: [] for top in counts for k in top.keys()}
@@ -206,6 +219,7 @@ if __name__ == "__main__":
     nlp.add_argument('-users', action='store_const', const='u', default=False)
     nlp.add_argument('-hashtags', action='store_const', const='h', default=False)
     nlp.add_argument('-mutex', action='store_true', default=False)
+    nlp.add_argument('-consecutive', action='store_true', default=False)
     nlp.add_argument('-file')
     nlp.set_defaults(func=handle_nlp)
 

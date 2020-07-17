@@ -37,9 +37,8 @@ optional arguments:
 * `-date <from_day> <to_day>` queries the database for all tweets with dates between `from_day` and `to_day` (inclusive), where dates are given as `yyyy-mm-dd`.
 * `-lang` queries the database based on language criteria. Only two languages are supported here, `en` for English and `es` for Spanish. Both can be provided at once if the user wishes to query for tweets in both languages at once.
 * `-geo` queries the database based on geographic location criteria. The following locations are supported: `fl` for Miami and South Florida, `ar` for Argentina, `co` for Columbia, `ec` for Ecuador, `es` for Spain, `mx` for Mexico, and `pe` for Peru. Many locations can be provided at once.
-* `-stopwords` for supplying a list of filenames containing stopwords. Each word is given
-on a new line and comments can be specified using `//`. A sample stopwords file has
-the following format:
+* `-stopwords` for supplying a list of filenames containing stopwords. Each word is given on a new line and comments can be specified using `//`. A sample stopwords
+file has the following format:
 
 ```
 // i
@@ -70,6 +69,7 @@ optional arguments:
 * `-h` to display the help menu.
 * `-top <n>` to fetch only the top `n` results.
 * `-ngram <num>` to query for n-grams where n is given by `num`. Multiple n-grams can be given at once.
+* `-consecutive` will retrieve n-grams based on its formal definition. By default, false.
 * `-users` to query for top users.
 * `-hashtags` to query for hashtags.
 * `-mutex` is a preprocessing setting to filter out words/hashtags that are not unique to a location-language pair. For example, for an input file that contains information about `mx-es`, `es-es`, and `fl-es`, `mx-es` rows will be filtered to contain words/hashtags that are unique to that pair. Likewise for `es-es` and `fl-es`.
