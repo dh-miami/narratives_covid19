@@ -20,5 +20,7 @@ Read the ""Covid-19 Twitter chatter dataset for scientific use"" website, articl
 * 7/7/2020, 0.5 hours, installed Anaconda 
 * 7/13/2020, 1.8 hours, tried to run top_ngrams and freq_viz_race and Jupyter says it couldn't open them. Tried to install packages in requirement.txt and couldn't run the command in Jupyter, neither. Probably didn't try the right place.
 * 7/14/2020, 3.5 hours, play with the scripts, workshop on Jerry's scripts, uploading and sharing conference recording. 
-## total hours 41.8
+* 7/17/2020, 2.5 hours, top Ngram CO "duque" and "presidencia" related, thought about future research questions and potential blog post topics, proposed to Susanna;
+* 7/18/2020, 5 hours, contributed to [Frequency Analysis for South Florida (April - June)](https://covid.dh.miami.edu/wp-admin/post.php?post=601&action=edit) used top_ngram scripts to explore FL ES & EN corpora from 4/25-5/25, concordance analysis of political related issues in June Spanish corpus;
+## total hours 49.3
 
