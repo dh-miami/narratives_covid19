@@ -22,5 +22,7 @@ Read the ""Covid-19 Twitter chatter dataset for scientific use"" website, articl
 * 7/14/2020, 3.5 hours, play with the scripts, workshop on Jerry's scripts, uploading and sharing conference recording. 
 * 7/17/2020, 2.5 hours, top Ngram CO "duque" and "presidencia" related, thought about future research questions and potential blog post topics, proposed to Susanna;
 * 7/18/2020, 7.25 hours, contributed to [Frequency Analysis for South Florida (April - June)](https://covid.dh.miami.edu/wp-admin/post.php?post=601&action=edit) used top_ngram scripts to explore FL ES & EN corpora from 4/25-5/25, concordance analysis of political related issues in June Spanish corpus;
-## total hours 51.55
+* 7/24/2020, 1 hour, communicating with Susanna about blog posts, journal submission, and LePage grant; try to set up Anaconda to runthe SoFlo script
+* 7/25/2020, 1.5 hours, LASA proposal, caught up with Slack messages, review SoFlo post comment and edited its Jupyter version.
+## total hours 54.05
 
