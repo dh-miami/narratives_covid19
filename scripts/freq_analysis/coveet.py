@@ -72,7 +72,8 @@ def get_data_df(lang, geo, start_date, end_date, stopwords):
                 tweets = requests.get(query_url(l, g, date), stream=True).text
                 for t in tweets.splitlines():
                     words = t.split()
-                    hashtags = [w for w in words if w[0] == '#']
+                    hashtags = [w for w in words if w[0] == '#'
+                                and w not in stopwords]
                     clean = [w for w in words if w[0] != '@'
                              and w != 'URL' and w[0] != '#'
                              and w not in stopwords]
@@ -155,27 +156,23 @@ def count_ngrams(df, ngram, consecutive, col_name=None, count_dic=None):
                     count_dic[tuple(sorted(comb))] += 1
     return count_dic
 
-
-def uniq_vocab_by_gl(df, text_col_name='text'):
-    group = df.groupby(["geo", "lang"])[text_col_name]
-    # geo, lang pair as a key that maps to the corresponding pair's vocabulary
-    # as a set
-    gl_vocab_dic = {
-        gl: [set(row) for row in g if row == row] for gl, g in group}
+def uniq_vocab_by_group(groups):
+    vocab_dic = {
+        k: [set(row) for row in g if row == row] for k, g in groups}
     # collapse tweet units into one set for each geo-lang pair
-    for k, v in gl_vocab_dic.items():
+    for k, v in vocab_dic.items():
         vocab = set()
         for s in v:
             vocab.update(s)
-        gl_vocab_dic[k] = vocab
+        vocab_dic[k] = vocab
 
     # universe of words
     # TODO if there is a slowdown, it might be the reduce
-    all_words = reduce(set.union, [v for v in gl_vocab_dic.values()])
-    complement_vocab_dic = {k: all_words - v for k, v in gl_vocab_dic.items()}
+    all_words = reduce(set.union, [v for v in vocab_dic.values()])
+    complement_vocab_dic = {k: all_words - v for k, v in vocab_dic.items()}
     unique_vocab_dic = {}
     # uniq_v2 = v2 \cap v1' \cap v3' \cap v4' ... vn'
-    for k, v in gl_vocab_dic.items():
+    for k, v in vocab_dic.items():
         unique_vocab_dic[k] = v
         for k2, v2 in complement_vocab_dic.items():
             if k != k2:
