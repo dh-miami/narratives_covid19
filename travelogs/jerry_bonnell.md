@@ -99,5 +99,12 @@ the top frequency lists, users, etc.
   formal definition 
 * Update readme  
 
+### 7/27/20 (4 hours)
 
-## total hours: 61
+* Added stopword directory 
+* Added stopwords for hashtag functionality to coveet 
+* Added a unique words by date function based on discussions with Dieyun
+* __TODO__ planning to add a lemmatizer function to coveet
+
+## total hours: 65
+
