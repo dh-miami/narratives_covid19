@@ -3,6 +3,7 @@ import requests
 import string
 import pandas as pd
 import sys
+import stanza
 from datetime import datetime, timedelta
 from functools import reduce
 from itertools import combinations
@@ -16,6 +17,7 @@ LANG_OPS = ['en', 'es']
 # mexico, peru
 GEO_OPS = ['fl', 'ar', 'co', 'ec', 'es', 'mx', 'pe']
 COMMENT_TOKEN = '//'
+HEADER_TOKEN = '$'
 
 def pos_type(string):
     value = int(string)
@@ -30,38 +32,7 @@ def date_type(string):
     except ValueError:
         raise argparse.ArgumentTypeError(f"{string} should be YYYY-MM-DD")
 
-
-def handle_query(args):
-    # handle stopwords
-    stopwords = []
-    if args.stopwords is not None:
-        # go for each file in stopwords
-        for fn in args.stopwords:
-            with open(fn, 'r') as f:
-                for line in f.readlines():
-                    if not line.startswith(COMMENT_TOKEN):
-                        stopwords.extend(line.split())
-    else:
-        print("warning: not using a stopwords file", file=sys.stderr)
-
-    args.lang = list(set(args.lang))
-    args.geo = list(set(args.geo))
-    start_date, end_date = args.date
-    df = get_data_df(args.lang, args.geo, start_date, end_date, stopwords)
-    fname = f"dhcovid_" + \
-            f"{args.date[0].year}-{args.date[0].month}-{args.date[0].day}" + \
-            f"_to_{args.date[1].year}-{args.date[1].month}-{args.date[1].day}"
-    for l in sorted(args.lang):
-        fname += f"_{l}"
-    for g in sorted(args.geo):
-        fname += f"_{g}"
-    if len(stopwords) == 0:
-        fname += f"_no-stopwords"
-    fname += ".csv"
-    df.to_csv(fname)
-    print(f"wrote df to {fname}!")
-
-def get_data_df(lang, geo, start_date, end_date, stopwords):
+def get_data_df(lang, geo, start_date, end_date):
     tweet_dic = {'date': [], 'lang': [], 'geo': [], 'text': [], 'hashtags': []}
     for l in lang:
         for g in geo:
@@ -72,11 +43,9 @@ def get_data_df(lang, geo, start_date, end_date, stopwords):
                 tweets = requests.get(query_url(l, g, date), stream=True).text
                 for t in tweets.splitlines():
                     words = t.split()
-                    hashtags = [w for w in words if w[0] == '#'
-                                and w not in stopwords]
+                    hashtags = [w for w in words if w[0] == '#']
                     clean = [w for w in words if w[0] != '@'
-                             and w != 'URL' and w[0] != '#'
-                             and w not in stopwords]
+                             and w != 'URL' and w[0] != '#']
                     tweet_dic['date'].append(date)
                     tweet_dic['lang'].append(l)
                     tweet_dic['geo'].append(g)
@@ -97,6 +66,22 @@ def query_url(lang, geo, start_date, end_date=None):
         return base_url + f"from-{start_date_str}-to-{end_date_str}"
 
     return base_url + start_date_str
+
+def handle_query(args):
+    args.lang = list(set(args.lang))
+    args.geo = list(set(args.geo))
+    start_date, end_date = args.date
+    df = get_data_df(args.lang, args.geo, start_date, end_date)
+    fname = f"dhcovid_" + \
+            f"{args.date[0].year}-{args.date[0].month}-{args.date[0].day}" + \
+            f"_{args.date[1].year}-{args.date[1].month}-{args.date[1].day}"
+    for l in sorted(args.lang):
+        fname += f"_{l}"
+    for g in sorted(args.geo):
+        fname += f"_{g}"
+    fname += ".csv"
+    df.to_csv(fname)
+    print(f"wrote df to {fname} 🎉")
 
 def handle_nlp(args):
     df = pd.read_csv(args.file, index_col=0)
@@ -133,8 +118,97 @@ def handle_nlp(args):
         new_fname += "consec"
     new_fname += ".csv"
     print(freq_df.head())
-    print(f"wrote freq df to {new_fname}!")
+    print(f"wrote freq df to {new_fname} 🎉")
     freq_df.to_csv(new_fname)
+
+# TODO need to handle NA representation
+def handle_tidy(args):
+    df = pd.read_csv(args.file, index_col=0)
+    if args.lemmatize:
+        stanza.download("en", processors="tokenize,pos,lemma")
+        stanza.download("es", processors="tokenize,pos,lemma")
+        stanza_es = stanza.Pipeline('es', processors='tokenize, pos, lemma')
+        stanza_en = stanza.Pipeline('en', processors='tokenize, pos, lemma')
+        groups = df.groupby(by=['lang'])
+        new_df = None
+        for lang, sub_df in groups:
+            # double newline is needed for stanza
+            total_str = sub_df['text'].str.cat(sep='\n\n', na_rep='か')
+            if lang == "en":
+                tokenized = stanza_en(total_str)
+            elif lang == "es":
+                tokenized = stanza_es(total_str)
+            else:
+                raise ValueError("something bad happened")
+
+            # list of list of words: list of tweets where each tweet is a list
+            # of words
+            tweets = [[dic['lemma'] for dic in t] for t in tokenized.to_dict()]
+            tweets = [" ".join(tweet) for tweet in tweets]
+            # overrwrite the text column with the lemmatized tweets
+            sub_df['text'] = pd.Series(tweets)
+            if new_df is None:
+                new_df = sub_df
+            else:
+                # row-wise concatenation
+                new_df = pd.concat([new_df, sub_df])
+        df = new_df
+
+    # handle stopwords
+    text_stopwords = []
+    hashtag_stopwords = []
+    mode = "BOTH"  # default mode if no header specified
+    if args.stopwords is not None:
+        # go for each file in stopwords
+        for fn in args.stopwords:
+            with open(fn, 'r') as f:
+                for line in f.readlines():
+                    if line.startswith(COMMENT_TOKEN):
+                        # ignore lines with comments
+                        pass
+                    elif line.startswith(HEADER_TOKEN):
+                        params = line[len(HEADER_TOKEN):].split()
+                        assert 0 < len(params) < 3  # sanity check
+                        if "HASHTAGS" in params and "TEXT" in params:
+                            mode = "BOTH"
+                        elif "HASHTAGS" in params:
+                            mode = "HASHTAGS"
+                        elif "TEXT" in params:
+                            mode = "TEXT"
+                        else:
+                            msg = "found a bad keyword in a stopwords file"
+                            raise ValueError(msg)
+                    else:
+                        if mode == "BOTH":
+                            text_stopwords.extend(line.split())
+                            hashtag_stopwords.extend(line.split())
+                        elif mode == "TEXT":
+                            text_stopwords.extend(line.split())
+                        else:
+                            hashtag_stopwords.extend(line.split())
+        # specify that some stopwords are for the text
+        # and others are for the hashtags
+        df['text'] = df['text'].apply(lambda text: " ".join(
+            [w for w in text.split() if w not in text_stopwords])
+            if text == text else "")
+        df['hashtags'] = df['hashtags'].apply(lambda text: " ".join(
+            [w for w in text.split() if w not in hashtag_stopwords])
+            if text == text else "")
+
+    # prepare the output file
+    out_fname = args.file.split(".")[0]
+    if args.stopwords is not None:
+        out_fname += "_stopworded"
+    if args.lemmatize:
+        out_fname += "_lemmatized"
+    out_fname += ".csv"
+
+    if out_fname == args.file:
+        print("❗️you did not ask me to do any tidying")
+    else:
+        df.to_csv(out_fname)
+        print(f"wrote tidied df to {out_fname} 🎉")
+
 
 
 def count_ngrams(df, ngram, consecutive, col_name=None, count_dic=None):
@@ -179,8 +253,6 @@ def uniq_vocab_by_group(groups):
                 unique_vocab_dic[k] &= v2  # do intersection and assignment
 
     return unique_vocab_dic
-
-
 
 def data2freq(df, ngram, top_n, csc, date_col_name='date', text_col_name='text'):
     uniq_vocab_by_gl(df, text_col_name)
@@ -231,8 +303,13 @@ if __name__ == "__main__":
                        choices=LANG_OPS, nargs='+')
     query.add_argument('-geo', default=GEO_OPS,
                        choices=GEO_OPS, nargs='+')
-    query.add_argument('-stopwords', default=None, nargs='+')
     query.set_defaults(func=handle_query)
+
+    tidy = subparsers.add_parser("tidy")
+    tidy.add_argument('-file')
+    tidy.add_argument('-stopwords', default=None, nargs='+')
+    tidy.add_argument('-lemmatize', action='store_true', default=False)
+    tidy.set_defaults(func=handle_tidy)
 
     args = parser.parse_args()
     print(args)
