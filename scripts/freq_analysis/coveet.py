@@ -133,7 +133,8 @@ def handle_tidy(args):
         new_df = None
         for lang, sub_df in groups:
             # double newline is needed for stanza
-            total_str = sub_df['text'].str.cat(sep='\n\n', na_rep='か')
+            sub_df = sub_df.fillna('か')
+            total_str = sub_df['text'].str.cat(sep='\n\n')
             if lang == "en":
                 tokenized = stanza_en(total_str)
             elif lang == "es":
@@ -153,6 +154,7 @@ def handle_tidy(args):
                 # row-wise concatenation
                 new_df = pd.concat([new_df, sub_df])
         df = new_df
+        df = df.replace('か', '')
 
     # handle stopwords
     text_stopwords = []
