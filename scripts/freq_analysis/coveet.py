@@ -3,12 +3,15 @@ import requests
 import string
 import pandas as pd
 import sys
+import os
 import stanza
+import multiprocessing
 from datetime import datetime, timedelta
 from functools import reduce
 from itertools import combinations
 from collections import defaultdict, Counter
 from tqdm import tqdm
+from stanza_parallel import lemmatize_in_parallel
 import IPython
 
 BASE_QUERY_URL = 'https://covid.dh.miami.edu/get/?'
@@ -121,40 +124,23 @@ def handle_nlp(args):
     print(f"wrote freq df to {new_fname} 🎉")
     freq_df.to_csv(new_fname)
 
-# TODO need to handle NA representation
 def handle_tidy(args):
     df = pd.read_csv(args.file, index_col=0)
+    # handle lemmatization
     if args.lemmatize:
         stanza.download("en", processors="tokenize,pos,lemma")
         stanza.download("es", processors="tokenize,pos,lemma")
-        stanza_es = stanza.Pipeline('es', processors='tokenize, pos, lemma')
-        stanza_en = stanza.Pipeline('en', processors='tokenize, pos, lemma')
-        groups = df.groupby(by=['lang'])
-        new_df = None
-        for lang, sub_df in groups:
-            # double newline is needed for stanza
-            sub_df = sub_df.fillna('か')
-            total_str = sub_df['text'].str.cat(sep='\n\n')
-            if lang == "en":
-                tokenized = stanza_en(total_str)
-            elif lang == "es":
-                tokenized = stanza_es(total_str)
-            else:
-                raise ValueError("something bad happened")
-
-            # list of list of words: list of tweets where each tweet is a list
-            # of words
-            tweets = [[dic['lemma'] for dic in t] for t in tokenized.to_dict()]
-            tweets = [" ".join(tweet) for tweet in tweets]
-            # overrwrite the text column with the lemmatized tweets
-            sub_df['text'] = pd.Series(tweets)
-            if new_df is None:
-                new_df = sub_df
-            else:
-                # row-wise concatenation
-                new_df = pd.concat([new_df, sub_df])
-        df = new_df
-        df = df.replace('か', '')
+        num_cpu = multiprocessing.cpu_count()
+        eta = num_cpu * 3.913e1 + 2.404e-03 * \
+            len(df) + 5.202e-02 * len(df) / num_cpu + -1.086e+02
+        print(f"🟡 i'm about to lemmatize, ETA: {eta} s")
+        lemmatize_in_parallel(num_cpu, args.file)
+        # pick up the lemmatized file and keep going; also delete the
+        # file as it is possibly intermediary
+        fname_to_load = args.file.split(".")[0] + "_stanza.csv"
+        assert os.path.exists(fname_to_load)
+        df = pd.read_csv(fname_to_load)
+        os.remove(fname_to_load)
 
     # handle stopwords
     text_stopwords = []
