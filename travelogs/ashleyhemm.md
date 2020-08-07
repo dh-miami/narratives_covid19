@@ -12,4 +12,5 @@
 * 6/25/2020, 1.5 hours - morning meeting, cleaning and uploading notes
 * 7/3/2020, 2 hours - editing Nidia's article, catching up on Slack
 * 8/4/2020, 2 hours - Nidia demonstration
-## total hours 23
+* 8/7/2020, 1 hour - working with Jupyter notebooks and Pandas, following Jerry's tutorial
+## total hours 24
