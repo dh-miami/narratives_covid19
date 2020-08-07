@@ -26,5 +26,6 @@ Read the ""Covid-19 Twitter chatter dataset for scientific use"" website, articl
 * 7/25/2020, 1.5 hours, LASA proposal, caught up with Slack messages, review SoFlo post comment and edited its Jupyter version.
 * 8/5/2020, 7.5 hours, Nidia's workshop, added feedback for LASA proposal, looked for syllabi on the history of pandemics for LePage grant, worked on SoFlo Jupyter post.
 * 8/6/2020, 1 hour, continued working on SoFlo Jupyter notebook, had issues with setting up and unique word function
-## total hours 62.55
+* 8/7/2020, 3.5 hours, continued working on SoFlo notebook had issues with running Coveet and stanza, asked Jerry for help; researched and assessed materials for teaching grant, set up a sharepoint site.
+## total hours 66.05
 
