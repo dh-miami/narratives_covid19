@@ -106,5 +106,17 @@ the top frequency lists, users, etc.
 * Added a unique words by date function based on discussions with Dieyun
 * __TODO__ planning to add a lemmatizer function to coveet
 
-## total hours: 65
+### 8/8/20 (16 hours) 
+
+* Nidia's workshop
+* Edits on the LASA proposal 
+* Added a fast lemmatization mode to coveet using an UDPipe implementation
+  in R; first tried an implementation with stanza, was too slow and eventually
+  crashed for a full of week of tweets, then tried to parallelize the 
+  work but still unsatisfied with the > 8 hours to accomplish the task, 
+  also received feedback from Deiyun that installation is very difficult;
+  with UDPipe, a full week of tweets can be lemmatized in ~45 minutes 
+  (thanks R :-)    
+
+## total hours: 81
 
