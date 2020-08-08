@@ -4,14 +4,14 @@ import string
 import pandas as pd
 import sys
 import os
-import stanza
+# import stanza
 import multiprocessing
 from datetime import datetime, timedelta
 from functools import reduce
 from itertools import combinations
 from collections import defaultdict, Counter
 from tqdm import tqdm
-from stanza_parallel import lemmatize_in_parallel
+# from stanza_parallel import lemmatize_in_parallel
 import IPython
 
 BASE_QUERY_URL = 'https://covid.dh.miami.edu/get/?'
@@ -128,19 +128,21 @@ def handle_tidy(args):
     df = pd.read_csv(args.file, index_col=0)
     # handle lemmatization
     if args.lemmatize:
-        stanza.download("en", processors="tokenize,pos,lemma")
-        stanza.download("es", processors="tokenize,pos,lemma")
-        num_cpu = multiprocessing.cpu_count()
-        eta = num_cpu * 3.913e1 + 2.404e-03 * \
-            len(df) + 5.202e-02 * len(df) / num_cpu + -1.086e+02
-        print(f"🟡 i'm about to lemmatize, ETA: {eta} s")
-        lemmatize_in_parallel(num_cpu, args.file)
+        # stanza.download("en", processors="tokenize,pos,lemma")
+        # stanza.download("es", processors="tokenize,pos,lemma")
+        num_cpu = multiprocessing.cpu_count() // 2
+        # eta = num_cpu * 3.913e1 + 2.404e-03 * \
+        #     len(df) + 5.202e-02 * len(df) / num_cpu + -1.086e+02
+        # print(f"🟡 i'm about to lemmatize, ETA: {eta} s")
+        # print(num_cpu)
+        # lemmatize_in_parallel(100, args.file)
+        l_fname = args.file.split(".")[0] + "_udpipe.csv"
+        os.system(f"RScript run_udpipe.R {args.file} {num_cpu} {l_fname}")
         # pick up the lemmatized file and keep going; also delete the
         # file as it is possibly intermediary
-        fname_to_load = args.file.split(".")[0] + "_stanza.csv"
-        assert os.path.exists(fname_to_load)
-        df = pd.read_csv(fname_to_load)
-        os.remove(fname_to_load)
+        assert os.path.exists(l_fname)
+        df = pd.read_csv(l_fname)
+        os.remove(l_fname)
 
     # handle stopwords
     text_stopwords = []
