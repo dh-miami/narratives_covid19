@@ -28,5 +28,7 @@ Read the ""Covid-19 Twitter chatter dataset for scientific use"" website, articl
 * 8/6/2020, 1 hour, continued working on SoFlo Jupyter notebook, had issues with setting up and unique word function
 * 8/7/2020, 3.5 hours, continued working on SoFlo notebook had issues with running Coveet and stanza, asked Jerry for help; researched and assessed materials for teaching grant, set up a sharepoint site.
 * 8/8/2020, 3 hours, worked with Jerry with SoFlo notebook post, researched and assessed materials for teaching grant
-## total hours 69.05
+* 8/9/2020, 1.25 hours, troubleshooted errors on the SoFlo post with Jerry
+* 8/10/2020, 6 hours, Lepage grant, SoFlo Jupyter post
+## total hours 76.30
 
