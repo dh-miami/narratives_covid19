@@ -13,4 +13,5 @@
 * 7/3/2020, 2 hours - editing Nidia's article, catching up on Slack
 * 8/4/2020, 2 hours - Nidia demonstration
 * 8/7/2020, 1 hour - working with Jupyter notebooks and Pandas, following Jerry's tutorial
-## total hours 24
+* 8/8/2020, 2 hours - working with Jerry's tutorial
+## total hours 26
