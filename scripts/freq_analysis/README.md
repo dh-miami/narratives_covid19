@@ -38,6 +38,9 @@ optional arguments:
 * `-date <from_day> <to_day>` queries the database for all tweets with dates between `from_day` and `to_day` (inclusive), where dates are given as `yyyy-mm-dd`.
 * `-lang` queries the database based on language criteria. Only two languages are supported here, `en` for English and `es` for Spanish. Both can be provided at once if the user wishes to query for tweets in both languages at once.
 * `-geo` queries the database based on geographic location criteria. The following locations are supported: `fl` for Miami and South Florida, `ar` for Argentina, `co` for Columbia, `ec` for Ecuador, `es` for Spain, `mx` for Mexico, and `pe` for Peru. More than one location can be specified at once.
+* `-all` queries the database for all tweets since the start of the collection cycle.
+If ran more than once, e.g. on a different day, the CSV is updated with the new tweets
+in the database since the last update.
 
 The results are written to a CSV file with form `dhcovid_yyyy-mm-dd_yyyy_mm-dd_lang_geo.csv`, based on the query given. CSV files can be read in using Excel or via pandas with `read_csv()`.
 

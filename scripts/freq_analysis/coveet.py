@@ -5,6 +5,7 @@ import pandas as pd
 import sys
 import os
 import multiprocessing
+import subprocess
 from datetime import datetime, timedelta
 from functools import reduce
 from itertools import combinations
@@ -19,6 +20,8 @@ LANG_OPS = ['en', 'es']
 GEO_OPS = ['fl', 'ar', 'co', 'ec', 'es', 'mx', 'pe']
 COMMENT_TOKEN = '//'
 HEADER_TOKEN = '$'
+COVID_EPOCH = datetime(month = 4, day = 24, year = 2020) # dawn of time
+ALL_FNAME = "dhcovid_en_es_ar_co_ec_es_fl_mx_pe_all.csv"
 
 def pos_type(string):
     value = int(string)
@@ -69,19 +72,56 @@ def query_url(lang, geo, start_date, end_date=None):
     return base_url + start_date_str
 
 def handle_query(args):
-    args.lang = list(set(args.lang))
-    args.geo = list(set(args.geo))
-    start_date, end_date = args.date
+    today = datetime.today()
+    today = datetime(day = today.day-1, month = today.month, year = today.year)
+    if args.all:
+        args.lang = list(set(LANG_OPS))
+        args.geo = list(set(GEO_OPS))
+        # 3 possibilities: download everything, download a part, up-to-date
+        if not os.path.exists(ALL_FNAME):
+            start_date = COVID_EPOCH
+            end_date = today
+        else:
+            # TODO always assuming the last row has the biggest uuid;
+            # this may be violated if the data is sorted; watch out for order
+            # dependency
+            # good sanity check would be to check that uuid is non-decreasing with
+            # no repetitions
+            uuid, date = subprocess.check_output(
+                ['tail', '-1', ALL_FNAME]).decode().split(",")[:2]
+            uuid = int(uuid)
+            date = datetime.strptime(date, '%Y-%m-%d')
+            # where we should start downloading
+            start_date = date + timedelta(days = 1)
+            end_date = today
+        if start_date >= end_date:
+            print("up to date")
+            return
+    else:
+        args.lang = list(set(args.lang))
+        args.geo = list(set(args.geo))
+        start_date, end_date = args.date
+
     df = get_data_df(args.lang, args.geo, start_date, end_date)
-    fname = f"dhcovid_" + \
-            f"{args.date[0].year}-{args.date[0].month}-{args.date[0].day}" + \
-            f"_{args.date[1].year}-{args.date[1].month}-{args.date[1].day}"
-    for l in sorted(args.lang):
-        fname += f"_{l}"
-    for g in sorted(args.geo):
-        fname += f"_{g}"
-    fname += ".csv"
-    df.to_csv(fname)
+    if args.all:
+        df.insert(loc=0, column='uuid', value=[i for i in range(len(df))])
+        fname = ALL_FNAME
+        if os.path.exists(ALL_FNAME):
+            df['uuid'] = df['uuid'] + uuid + 1
+            with open(ALL_FNAME, 'a') as f:
+                df.to_csv(f, header=False, index=False)
+        else:
+            df.to_csv(fname, index = False)
+    else:
+        fname = f"dhcovid_" + \
+                f"{args.date[0].year}-{args.date[0].month}-{args.date[0].day}" + \
+                f"_{args.date[1].year}-{args.date[1].month}-{args.date[1].day}"
+        for l in sorted(args.lang):
+            fname += f"_{l}"
+        for g in sorted(args.geo):
+            fname += f"_{g}"
+        fname += ".csv"
+        df.to_csv(fname)
     print(f"wrote df to {fname} 🎉")
 
 def handle_nlp(args):
@@ -191,7 +231,6 @@ def handle_tidy(args):
         print(f"wrote tidied df to {out_fname} 🎉")
 
 
-
 def count_ngrams(df, ngram, consecutive, col_name=None, count_dic=None):
     # assumes the column identified by col_name is a tokenized list of words
     if count_dic is None:
@@ -276,14 +315,23 @@ if __name__ == "__main__":
     # if want same day, just give same day twice
     # ask for days=6 because of subtract one (7-1) before you go rule
     query = subparsers.add_parser("query")
-    query.add_argument(
-        '-date',
-        default=[datetime.today() - timedelta(days=6), datetime.today()],
-        nargs=2, type=date_type)
+    default_start = datetime.today() - timedelta(days=7)
+    default_start = datetime(day = default_start.day,
+                                      month = default_start.month,
+                                      year = default_start.year)
+    default_end = datetime.today() - timedelta(days=1)
+    default_end = datetime(day=default_end.day,
+                                      month=default_end.month,
+                                      year=default_end.year)
+
+    query.add_argument('-date', default=[default_start, default_end], nargs=2,
+                       type=date_type)
     query.add_argument('-lang', default=LANG_OPS,
                        choices=LANG_OPS, nargs='+')
     query.add_argument('-geo', default=GEO_OPS,
                        choices=GEO_OPS, nargs='+')
+    # this one overrides all other options
+    query.add_argument('-all', action='store_true', default=False)
     query.set_defaults(func=handle_query)
 
     tidy = subparsers.add_parser("tidy")
@@ -291,6 +339,11 @@ if __name__ == "__main__":
     tidy.add_argument('-stopwords', default=None, nargs='+')
     tidy.add_argument('-lemmatize', action='store_true', default=False)
     tidy.set_defaults(func=handle_tidy)
+
+    # TODO
+    # we will use a pandas filter to check if the word is in the text
+    # if it is, then that means a new entry in the word_uuid table
+    # the word-uuid table is a map from word to the uuid
 
     args = parser.parse_args()
     print(args)
