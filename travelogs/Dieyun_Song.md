@@ -32,5 +32,7 @@ Read the ""Covid-19 Twitter chatter dataset for scientific use"" website, articl
 * 8/10/2020, 6 hours, Lepage grant, SoFlo Jupyter post
 * 8/11/2020, 4 hours, Lepage grant, SoFlo Jupyter post
 * 8/12/2020, 7.5 hours, Lepage grant, SoFlo Jupyter post
-## total hours 87.80
+* 8/13/2020, 3 hours, MLA grant, SoFlo Jupyter post
+* 8/14/2020, 3.5 hours, SoFlo Jupyter post
+## total hours 94.30
 
