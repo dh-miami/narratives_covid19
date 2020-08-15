@@ -39,23 +39,26 @@ out_fname <- args[3]
 df_es <- filter(df, lang == "es")
 df_en <- filter(df, lang == "en")
 
-path_es <- "./spanish-lemma-model.udpipe"
-path_en <- "./english-lemma-model.udpipe"
-if (!file.exists(path_es)) {
-    model_es <- udpipe_download_model(language = "spanish", model_dir = path_es)
-}
+#path_es <- "./spanish-lemma-model.udpipe"
+#path_en <- "./english-lemma-model.udpipe"
+#if (!file.exists(path_es)) {
+#    model_es <- udpipe_download_model(language = "spanish", model_dir = path_es)
+#}
 
-if (!file.exists(path_en)) {
-    model_en <- udpipe_download_model(language = "spanish", model_dir = path_en)
-}
+#if (!file.exists(path_en)) {
+#    model_en <- udpipe_download_model(language = "spanish", model_dir = path_en)
+#}
+
+model_en <- udpipe_load_model("./english-lemma-model.udpipe/english-ewt-ud-2.4-190531.udpipe")
+model_es <- udpipe_load_model("./english-lemma-model.udpipe/spanish-gsd-ud-2.4-190531.udpipe")
 
 x <- data.frame(doc_id = df_es$X1, text = df_es$text, stringsAsFactors = FALSE)
 print("running udpipe es now..")
-results_es <- data.frame(udpipe(x, path_es, parallel.cores = num_cpu))
+results_es <- data.frame(udpipe(x, model_es, parallel.cores = num_cpu))
 
 x <- data.frame(doc_id = df_en$X1, text = df_en$text, stringsAsFactors = FALSE)
 print("running udpipe en now..")
-results_en <- data.frame(udpipe(x, path_en, parallel.cores = num_cpu))
+results_en <- data.frame(udpipe(x, model_en, parallel.cores = num_cpu))
 
 replace_na <- function(x) {
     if (x == "na") {

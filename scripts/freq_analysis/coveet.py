@@ -173,7 +173,7 @@ def handle_tidy(args):
     if args.lemmatize:
         num_cpu = multiprocessing.cpu_count() // 2
         l_fname = args.file.split(".")[0] + "_udpipe.csv"
-        os.system(f"RScript run_udpipe.R {args.file} {num_cpu} {l_fname}")
+        os.system(f"Rscript run_udpipe.R {args.file} {num_cpu} {l_fname}")
         # pick up the lemmatized file and keep going; also delete the
         # file as it is possibly intermediary
         assert os.path.exists(l_fname)
