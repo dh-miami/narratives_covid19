@@ -13,6 +13,7 @@ from collections import defaultdict, Counter
 from tqdm import tqdm
 import IPython
 
+# https://covid.dh.miami.edu/twitter-texts/
 BASE_QUERY_URL = 'https://covid.dh.miami.edu/get/?'
 LANG_OPS = ['en', 'es']
 # geography options: florida, argentina, columbia, ecuador, spain,
@@ -21,7 +22,9 @@ GEO_OPS = ['fl', 'ar', 'co', 'ec', 'es', 'mx', 'pe']
 COMMENT_TOKEN = '//'
 HEADER_TOKEN = '$'
 COVID_EPOCH = datetime(month = 4, day = 24, year = 2020) # dawn of time
+# TODO create a settings.py file with these constants
 ALL_FNAME = "dhcovid_en_es_ar_co_ec_es_fl_mx_pe_all.csv"
+WORD_UUID_FNAME = "word_uuid_table.csv"
 
 def pos_type(string):
     value = int(string)
@@ -146,7 +149,8 @@ def handle_nlp(args):
 
     df = df.dropna(subset=[col_name])
     if args.mutex:
-        vocab_dic = uniq_vocab_by_gl(df, col_name)
+        grouping = df.groupby(["geo", "lang"])["text"]
+        vocab_dic = uniq_vocab_by_group(grouping)
         df[col_name] = df.apply(
             lambda x : set(x[col_name]) & vocab_dic[(x['geo'], x['lang'])],
             result_type='reduce', axis=1)
@@ -165,6 +169,7 @@ def handle_nlp(args):
 def handle_tidy(args):
     df = pd.read_csv(args.file, index_col=0)
     # handle lemmatization
+    # TODO udpipe puts in NA for out of vocabulary words
     if args.lemmatize:
         num_cpu = multiprocessing.cpu_count() // 2
         l_fname = args.file.split(".")[0] + "_udpipe.csv"
@@ -275,7 +280,7 @@ def uniq_vocab_by_group(groups):
     return unique_vocab_dic
 
 def data2freq(df, ngram, top_n, csc, date_col_name='date', text_col_name='text'):
-    uniq_vocab_by_gl(df, text_col_name)
+    #uniq_vocab_by_gl(df, text_col_name)
     group = df.groupby([date_col_name])[text_col_name]
     # list of all the top words for every day
     counts = [dict(
@@ -294,6 +299,26 @@ def data2freq(df, ngram, top_n, csc, date_col_name='date', text_col_name='text')
     df.rename(columns=lambda x: ' '.join(x) if x != 'date' else x, inplace=True)
     # prepare the new df
     return df
+
+def handle_search(args):
+    words = args.search
+    search_dic = {"query_words" : [], "uuid": []}
+    df = pd.read_csv(ALL_FNAME)
+
+    for text, uuid in tqdm(zip(df['text'], df['uuid']), total=len(df)):
+        if text != text:
+            # skip rows with empty text fields
+            continue
+        for word in words:
+            if word in text:
+                search_dic['query_words'].append(word)
+                search_dic['uuid'].append(uuid)
+
+    search_df = pd.DataFrame(search_dic)
+    search_df.sort_values(by = ["query_words", "uuid"], inplace = True)
+
+    search_df.to_csv("word_uuid_table.csv", index = False)
+
 
 
 if __name__ == "__main__":
@@ -340,10 +365,8 @@ if __name__ == "__main__":
     tidy.add_argument('-lemmatize', action='store_true', default=False)
     tidy.set_defaults(func=handle_tidy)
 
-    # TODO
-    # we will use a pandas filter to check if the word is in the text
-    # if it is, then that means a new entry in the word_uuid table
-    # the word-uuid table is a map from word to the uuid
+    parser.add_argument('-search', nargs='+')
+    parser.set_defaults(func=handle_search)
 
     args = parser.parse_args()
     print(args)
