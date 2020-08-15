@@ -118,5 +118,17 @@ the top frequency lists, users, etc.
   with UDPipe, a full week of tweets can be lemmatized in ~45 minutes 
   (thanks R :-)    
 
-## total hours: 81
+### 8/15/20 (16 hours)
+
+* Marlas journal article  
+* Helped troubleshoot bugs in SoFlo jupyter notebook and edit for clarity 
+* Added options to coveet for a corpus-wide search; need to discuss 
+  - idea is to create a CSV that contains all tweet data in corpus 
+    and then run a function periodically (could be done automatically 
+    by server) to update the CSV with new tweets; also keep track of 
+    a unique id for tweets (not the same one Twitter uses, just for us)
+  - build a secondary table that maps search words to these unique id's
+* Minor adjustments in `top_ngrams.ipynb` notebook for better clarity 
+
+## total hours: 97
 
