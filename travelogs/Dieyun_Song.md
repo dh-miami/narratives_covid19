@@ -36,6 +36,6 @@ Read the ""Covid-19 Twitter chatter dataset for scientific use"" website, articl
 * 8/14/2020, 8 hours, discovered issue with retrieving FL EN corpus in SoFlo Jupyter post; worked on LePage and MLA grants.
 * 8/15/2020, 5 hours, MLA grant, MARLAS article
 * 8/16/2020, 5 hours, MLA grant, MARLAS article
-* 8/17/2020, 
-## total hours 108.80
+* 8/17/2020, 4.5 huors, MLA grant, MARLAS article
+## total hours 113.30
 
