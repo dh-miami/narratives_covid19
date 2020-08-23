@@ -349,6 +349,7 @@ suyas
 suyo
 suyos
 sí
+tambien
 también
 tanto
 te
