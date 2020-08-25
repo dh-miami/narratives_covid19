@@ -44,5 +44,5 @@ Read the ""Covid-19 Twitter chatter dataset for scientific use"" website, articl
 * 8/24/2020, 1 hour, MARLAS article
 * 8/25/2020, 4 hours, organize data for MARLAS article
 
-## total hours 135.30
+## total hours 139.30
 
