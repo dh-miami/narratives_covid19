@@ -42,5 +42,7 @@ Read the ""Covid-19 Twitter chatter dataset for scientific use"" website, articl
 * 8/20/2020, 5 hours, gathered first two months of data for MARLAS article, tried to do the entire corpus and failed several times due to connection issues and Binder's storage, started writing.
 * 8/21/2020, 10 hours, MARLAS article, rerun all the results and gather visualizations, started writing the preliminary results section 
 * 8/24/2020, 1 hour, MARLAS article
+* 8/25/2020, 4 hours, organize data for MARLAS article
+
 ## total hours 135.30
 
