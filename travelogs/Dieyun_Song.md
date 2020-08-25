@@ -40,5 +40,7 @@ Read the ""Covid-19 Twitter chatter dataset for scientific use"" website, articl
 * 8/18/2020, 3 hours, MARLAS article
 * 8/19/2020, 3 hours, processed Susanna's MARLAS results, updated Spanish stopword lists, wrote an outline for the article.
 * 8/20/2020, 5 hours, gathered first two months of data for MARLAS article, tried to do the entire corpus and failed several times due to connection issues and Binder's storage, started writing.
-## total hours 124.30
+* 8/21/2020, 10 hours, MARLAS article, rerun all the results and gather visualizations, started writing the preliminary results section 
+* 8/24/2020, 1 hour, MARLAS article
+## total hours 135.30
 
