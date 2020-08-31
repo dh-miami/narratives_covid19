@@ -43,6 +43,11 @@ Read the ""Covid-19 Twitter chatter dataset for scientific use"" website, articl
 * 8/21/2020, 10 hours, MARLAS article, rerun all the results and gather visualizations, started writing the preliminary results section 
 * 8/24/2020, 1 hour, MARLAS article
 * 8/25/2020, 4 hours, organize data for MARLAS article
+* 8/26/2020, 10 hours, revising MARLAS article
+* 8/27/2020, 8 hours, revising MARLAS article
+* 8/29/2020, 2 hours, revising MARLAS article
+* 8/30/2020, 5 hours, revising MARLAS article
 
-## total hours 139.30
+
+## total hours 164.30
 
