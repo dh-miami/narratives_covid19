@@ -1,9 +1,12 @@
 from os.path import isfile
 from os import makedirs
 import re
+from random import sample
+from json import dump, load
 
 import pandas as pd
 import stanza
+import spacy
 from tqdm import tqdm
 import gensim
 from gensim import corpora
@@ -47,14 +50,39 @@ def make_stanza_tweets(lang, tweets, processors='tokenize, pos, lemma'):
     nlp_stanza = stanza.Pipeline(lang, processors=processors)
     return [nlp_stanza(tweet) for tweet in tqdm(tweets, desc='Tokenizing, applying POS and lemmatizing tweets')]
 
+def clean(tweet, stop_words):
+    clean_tweet=[]
+    for token in tweet.split():
+        if not token.isnumeric():
+            if token not in stop_words:
+                clean_tweet.append(token)
+    return ' '.join(clean_tweet)
+
+def remove_empty_tweets(tweets):
+    return [tw for tw in tweets if tw]
+
+def count_words_in_tweet(tweet):
+    return len(tweet.split())
+
+def remove_one_word_tweets(tweets):
+    return [tw for tw in tweets if count_words_in_tweet(tw) > 1]
+
 def clean_stanza(stanza_word, stop_words):
     '''Receives a Stanza dictionary'''
     not_a_number = not stanza_word.text.isnumeric()
     not_a_stopword = (stanza_word.text not in stop_words) and (stanza_word.lemma not in stop_words)
-    not_an_unidentified_emoji = 'emoji_not_identified' not in stanza_word.text ## novamas
+    #not_an_unidentified_emoji = 'emoji_not_identified' not in stanza_word.text ## novamas
     #not_an_emoji = stanza_word.text not in emojinames_list ## novamas
     
-    return not_a_number and not_a_stopword and not_an_unidentified_emoji #and not_an_emoji
+    return not_a_number and not_a_stopword #and not_an_unidentified_emoji and not_an_emoji
+
+def remove_NE_tag(txt):
+    return txt.replace("NE__", "").replace("ne__", "")
+
+def dump_processed_tweets_as_json(tweets, filepath):
+    """tweets should be a list of lists of strings."""
+    with open(filepath, "w") as f:
+        dump(tweets, f)
 
 def make_lemmas_list_nouns_list(stanza_tweets, stop_words):
     '''Receives stanza tweets and returns a list of lemmatized tweets and a list of lemmatized tweets (only nouns).
@@ -70,11 +98,20 @@ def make_lemmas_list_nouns_list(stanza_tweets, stop_words):
             for stanza_word in sent.words:
                 if not clean_stanza(stanza_word, stop_words):
                     continue
+                    
+                lemma = remove_NE_tag(stanza_word.lemma)
+                text = remove_NE_tag(stanza_word.text)
 
-                this_tweet_all_lemmas.append(stanza_word.lemma)
-                if stanza_word.upos == "NOUN":
-                    this_tweet_noun_lemmas.append(stanza_word.lemma)
-
+                this_tweet_all_lemmas.append(lemma)
+                
+                # Warning: stanza_word.text keeps uppercase characters but lemma does not!
+                if "NE__" in stanza_word.text:
+                    this_tweet_noun_lemmas.append(text)
+                elif stanza_word.upos == "NOUN":
+                    this_tweet_noun_lemmas.append(lemma)
+                elif stanza_word.upos == "PROPN":
+                    this_tweet_noun_lemmas.append(text)
+      
         lemmas_tweets.append(this_tweet_all_lemmas)
         nouns_tweets.append(this_tweet_noun_lemmas)
         
@@ -129,7 +166,7 @@ def make_model_path(models_dir, corpus_label, model_label, ntopics):
     model_path = f"{models_dir}/{corpus_label}-{model_label}-ntopics{ntopics:02}"
     return model_path
 
-def train_several_LDA_models(tweets, topic_numbers_to_try, corpus_label, model_label, models_dir):
+def train_several_LDA_models(tweets, topic_numbers_to_try, corpus_label, model_label, models_dir, overwrite=False):
     models = {}
     
     makedirs(models_dir, exist_ok=True)
@@ -137,7 +174,7 @@ def train_several_LDA_models(tweets, topic_numbers_to_try, corpus_label, model_l
     for ntopics in topic_numbers_to_try:
         output_path = make_model_path(models_dir, corpus_label, model_label, ntopics)
 
-        if not isfile(output_path):
+        if not isfile(output_path) or overwrite:
             dictionary, doc_term_matrix = make_dictionary_and_matrix(tweets)
             train_LDA_model(ntopics, dictionary, doc_term_matrix, output_path=output_path)
         else:
@@ -147,14 +184,17 @@ def train_several_LDA_models(tweets, topic_numbers_to_try, corpus_label, model_l
         
     return models
 
-def calculate_topic_coherence(models, tweets):
-    '''Receives 
+def calculate_topic_coherence(models, tweets, measures=["c_npmi", "c_uci", "u_mass", "c_v"], verbose=True):
+    '''models should be a dictionary of ntopics as keys, LDA models as values.
     Returns pandas.DataFrame of scores'''
     scores = []
-    measures = ["c_npmi", "c_uci", "u_mass", "c_v"] # we use different scores to calculate topic coherence
-
     dictionary = corpora.Dictionary(tweets)
-    for ntopics, model in tqdm(models.items(), desc='Calculating model coherence: '):
+    
+    models_iterator = models.items()
+    if verbose:
+        models_iterator = tqdm(models_iterator, desc='Calculating model coherence: ')
+    
+    for ntopics, model in models_iterator:
         scoring = {"ntopics": ntopics}
         for measure in measures:
             # Based on: https://radimrehurek.com/gensim/models/coherencemodel.html
@@ -196,3 +236,93 @@ def plot_LDA_topics(model, tweets, output_path=None, show=True, notebook=True):
     
     if show:
         return data
+
+def load_processed_tweets_from_json(path):
+    with open(path) as f:
+        return load(f)
+
+def make_tweets_with_tagged_named_entities(spacy_tweets):
+    modified_tweets = []
+    for spacy_tweet in tqdm(spacy_tweets):
+        modified_tweet = str(spacy_tweet)
+
+        for entity in spacy_tweet.ents:
+            entity_words = str(entity).split()
+            entity_merged = "_".join(entity_words)
+            modified_tweet = modified_tweet.replace(str(entity), f"NE__{entity_merged}")
+
+        modified_tweets.append(modified_tweet)
+    return modified_tweets
+
+def infer_lang_from_corpus_label(label):
+    # Example label: dhcovid_2020-7-11_2020-7-17_es_mx
+    return label.split("_")[-2]
+
+SPACY_MODELS = {
+    'es': 'es_core_news_sm',
+    'en': 'en_core_web_lg'
+}
+
+def modelize(path, sample_n=None, overwrite=False):
+    # Assumes these previous steps:
+    # $ python -m spacy download en_core_web_lg
+    # $ python -m spacy download es_core_news_sm
+    # stanza.download('en')
+    # stanza.download('es')
+    
+    corpus_label = path.replace('.csv', '')
+    processed_tweets_path = path.replace(".csv", ".processed-tweets.json")
+
+    if not isfile(processed_tweets_path):
+        lang = infer_lang_from_corpus_label(corpus_label)
+        tweets = read_tweets_csv(path)
+
+        if sample_n:
+            tweets = sample(tweets, min(sample_n, len(tweets)))
+
+        print(f"[{corpus_label}] Preprocessing")
+        tweets = [remove_emojis(tweet).strip() for tweet in tweets]
+        tweets = [tweet for tweet in tweets if tweet]
+        stopwords = read_stopwords(lang)
+        clean_tweets = []
+        for tweet in tweets:
+            clean_tweets.append(clean(tweet, stopwords))
+
+        # Hack needed to avoid weird Stanza behaviour with Spanish.
+        # For instance, "peinandose" breaks the "pos" processor, but
+        # "peinandose peinandose" does not break it!
+        clean_tweets = remove_one_word_tweets(clean_tweets)
+
+        print(f"[{corpus_label}] Identify Named Entities")
+        spacy_nlp = spacy.load(SPACY_MODELS[lang])
+        nlp_spacy_tweets = [spacy_nlp(tweet, disable=["tagger", "parser"]) for tweet in tqdm(clean_tweets)]
+
+        ner_tweets = make_tweets_with_tagged_named_entities(nlp_spacy_tweets)
+        ner_tweets = remove_empty_tweets(ner_tweets)
+
+        print(f"{corpus_label}] POS and lemmatization")
+        stanza_tweets = make_stanza_tweets(lang, ner_tweets)
+
+        print(f"[{corpus_label}] Build list of lemmas and nouns")
+        lemmas_tweets, nouns_tweets = make_lemmas_list_nouns_list(stanza_tweets, stopwords)
+
+        nouns_tweets_with_bigrams = add_ngrams_to_tweets(lemmas_tweets, nouns_tweets, verbose=False)
+
+        print(f"[{corpus_label}] Dump processed tweets as JSON")
+        dump_processed_tweets_as_json(nouns_tweets_with_bigrams, processed_tweets_path)
+    else:
+        print(f"[{corpus_label}] Load processed tweets from JSON")
+        nouns_tweets_with_bigrams = load_processed_tweets_from_json(processed_tweets_path)
+    
+    print(f"[{corpus_label}] Unsupervised learning")
+    model_label = 'lemma_2gram_LDA'
+    models_dir = "../../outputs/topic_modelling/gensim_LDA_models"
+
+    models = train_several_LDA_models(
+        tweets=nouns_tweets_with_bigrams,
+        topic_numbers_to_try=range(3, 13),
+        corpus_label=corpus_label,
+        model_label=model_label,
+        models_dir=models_dir,
+        overwrite=overwrite
+    )
