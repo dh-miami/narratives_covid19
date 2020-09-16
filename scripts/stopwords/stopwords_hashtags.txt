@@ -1,9 +1,8 @@
 $ HASHTAGS
-$ HASHTAGS
 #coronavirus
 #covid
 #covid19
-#'
+#
 #01jul
 #01jun
 #02jun
