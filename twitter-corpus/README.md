@@ -35,4 +35,6 @@ The corpus of tweets consists of a list of Tweet Ids, that need to be treated wi
 
 We started collecting our dataset on April 24th, 2020. For prior dates (January - April 24th), we will use the [PanaceaLab dataset](https://github.com/thepanacealab/covid19_twitter), since it is one of the few that collects data in all languages. There is a detected problem with file 2020-04-24/dhcovid_2020-04-24_es.txt, which we couldn't gather the data. 
 
+Files are shared under a cc-by license
+
 
