@@ -14,7 +14,7 @@ from tqdm import tqdm
 import IPython
 
 # https://covid.dh.miami.edu/twitter-texts/
-BASE_QUERY_URL = 'https://covid.dh.miami.edu/get/?'
+BASE_QUERY_URL = 'https://covid.dh.miami.edu/get0/?'
 LANG_OPS = ['en', 'es']
 # geography options: florida, argentina, columbia, ecuador, spain,
 # mexico, peru
