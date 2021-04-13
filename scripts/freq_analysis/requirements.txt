@@ -62,3 +62,4 @@ urllib3==1.25.9
 wcwidth==0.2.5
 webencodings==0.5.1
 widgetsnbextension==3.5.1
+spacy_udpipe==0.3.2

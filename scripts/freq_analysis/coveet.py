@@ -4,7 +4,6 @@ import string
 import pandas as pd
 import sys
 import os
-import multiprocessing
 import subprocess
 from datetime import datetime, timedelta
 from functools import reduce
@@ -12,6 +11,7 @@ from itertools import combinations
 from collections import defaultdict, Counter
 from tqdm import tqdm
 import IPython
+import spacy_udpipe
 
 # https://covid.dh.miami.edu/twitter-texts/
 BASE_QUERY_URL = 'https://covid.dh.miami.edu/get0/?'
@@ -25,6 +25,9 @@ COVID_EPOCH = datetime(month = 4, day = 24, year = 2020) # dawn of time
 # TODO create a settings.py file with these constants
 ALL_FNAME = "dhcovid_en_es_ar_co_ec_es_fl_mx_pe_all.csv"
 WORD_UUID_FNAME = "word_uuid_table.csv"
+
+udpipe_en = None
+udpipe_es = None
 
 def pos_type(string):
     value = int(string)
@@ -166,19 +169,31 @@ def handle_nlp(args):
     print(f"wrote freq df to {new_fname} 🎉")
     freq_df.to_csv(new_fname)
 
+def lemmatize_row(row):
+    global udpipe_es
+    global udpipe_en
+    if not isinstance(row['text'], str):
+        # most definitely a nan case if here; just do nothing
+        return row['text']
+    if row['lang'] == 'en':
+        return " ".join([token.lemma_ for token in udpipe_en(row['text'])])
+    elif row['lang'] == 'es':
+        return " ".join([token.lemma_ for token in udpipe_es(row['text'])])
+    else:
+        raise ValueError('lemmatize: unknown lang')
+
 def handle_tidy(args):
     df = pd.read_csv(args.file, index_col=0)
     # handle lemmatization
-    # TODO udpipe puts in NA for out of vocabulary words
     if args.lemmatize:
-        num_cpu = multiprocessing.cpu_count() // 2
-        l_fname = args.file.split(".")[0] + "_udpipe.csv"
-        os.system(f"Rscript run_udpipe.R {args.file} {num_cpu} {l_fname}")
-        # pick up the lemmatized file and keep going; also delete the
-        # file as it is possibly intermediary
-        assert os.path.exists(l_fname)
-        df = pd.read_csv(l_fname)
-        os.remove(l_fname)
+        tqdm.pandas()
+        global udpipe_es
+        global udpipe_en
+        spacy_udpipe.download('en')
+        spacy_udpipe.download('es')
+        udpipe_en = spacy_udpipe.load("en")
+        udpipe_es = spacy_udpipe.load("es")
+        df["text"] = df.progress_apply(lemmatize_row, axis=1)
 
     # handle stopwords
     text_stopwords = []
