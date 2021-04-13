@@ -12,6 +12,7 @@ from collections import defaultdict, Counter
 from tqdm import tqdm
 import IPython
 import spacy_udpipe
+from pandarallel import pandarallel
 
 # https://covid.dh.miami.edu/twitter-texts/
 BASE_QUERY_URL = 'https://covid.dh.miami.edu/get0/?'
@@ -186,14 +187,15 @@ def handle_tidy(args):
     df = pd.read_csv(args.file, index_col=0)
     # handle lemmatization
     if args.lemmatize:
-        tqdm.pandas()
+        # tqdm.pandas()
+        pandarallel.initialize(progress_bar=True)
         global udpipe_es
         global udpipe_en
         spacy_udpipe.download('en')
         spacy_udpipe.download('es')
         udpipe_en = spacy_udpipe.load("en")
         udpipe_es = spacy_udpipe.load("es")
-        df["text"] = df.progress_apply(lemmatize_row, axis=1)
+        df["text"] = df.parallel_apply(lemmatize_row, axis=1)
 
     # handle stopwords
     text_stopwords = []
