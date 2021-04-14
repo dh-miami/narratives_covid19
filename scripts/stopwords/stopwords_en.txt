@@ -77,6 +77,7 @@ doesn't
 doing
 don
 don't 
+dont
 done 
 down 
 due 
@@ -120,6 +121,7 @@ g
 get 
 give 
 go 
+got
 h 
 had
 hadn
@@ -152,6 +154,7 @@ i
 i
 ie 
 if 
+im
 in 
 inc 
 indeed 
@@ -173,6 +176,7 @@ latter
 latterly 
 least 
 less 
+like
 ll
 ltd 
 m
