@@ -394,6 +394,7 @@ todo
 todo
 todos
 tras
+traves
 tu
 tus
 tuve
