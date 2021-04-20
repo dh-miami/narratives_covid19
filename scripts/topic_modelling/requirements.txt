@@ -32,7 +32,7 @@ pandas==1.1.0             # via -r requirements.in, pyldavis
 pillow==8.1.1             # via matplotlib
 pluggy==0.13.1            # via pytest
 protobuf==3.12.4          # via stanza
-py==1.9.0                 # via pytest
+py==1.10.0                 # via pytest
 pyldavis==2.1.2           # via -r requirements.in
 pyparsing==2.4.7          # via matplotlib, packaging
 pytest==6.0.1             # via pyldavis
