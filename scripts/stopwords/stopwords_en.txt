@@ -1,5 +1,6 @@
 $ TEXT
 covid19
+covid
 URL
 a 
 about 
