@@ -47,7 +47,7 @@ stanza==1.0.1             # via -r requirements.in
 toml==0.10.1              # via pytest
 torch==1.6.0              # via stanza
 tqdm==4.48.2              # via -r requirements.in, stanza
-urllib3==1.25.10          # via botocore, requests
+urllib3==1.26.5          # via botocore, requests
 wheel==0.34.2             # via pyldavis
 zipp==3.1.0               # via importlib-metadata
 
