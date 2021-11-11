@@ -1,6 +1,8 @@
 # Digital Narratives of Covid-19
 
-jupyter+python (frequency analyis notebook): [![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jerrybonnell/narratives_covid19/master?filepath=scripts/freq_analysis/coveet_frequency.ipynb)
+jupyter+python (frequency analyis notebook): [![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/dh-miami/narratives_covid19/master?filepath=scripts/freq_analysis/coveet_frequency.ipynb)
+
+jupyter+python (sentiment analyis notebook): [![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/dh-miami/narratives_covid19/master?filepath=scripts/freq_analysis/coveet_sentiment.ipynb)
 
 Digital Humanities can help us understand data from a humanistic perspective, and this seems particularly true in this time, in which data about Covid-19 seems to be everywhere and overwhelmingly generated in large volumes. Our project *Digital Narratives of Covid-19* (DHCOVID) will explore during one year (May 2020-2021) the narratives behind the data about coronavirus pandemia in academic literature and social networks using quantitative and qualitative DH approaches.
 
