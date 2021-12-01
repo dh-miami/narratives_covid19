@@ -79,9 +79,10 @@ def query_url(lang, geo, start_date, end_date=None):
     return base_url + start_date_str
 
 def handle_query(args):
-    today = datetime.today()
-    today = datetime(day = today.day-1, month = today.month, year = today.year)
     if args.all:
+        today = datetime.today()
+        # NOTE this was changed from today.day - 1; not sure why -1
+        today = datetime(day=today.day, month=today.month, year=today.year)
         args.lang = list(set(LANG_OPS))
         args.geo = list(set(GEO_OPS))
         # 3 possibilities: download everything, download a part, up-to-date
