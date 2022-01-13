@@ -29,7 +29,7 @@ numexpr==2.7.1            # via pyldavis
 numpy==1.19.1             # via -r requirements.in, gensim, matplotlib, numexpr, pandas, pyldavis, scipy, stanza, torch
 packaging==20.4           # via pytest
 pandas==1.1.0             # via -r requirements.in, pyldavis
-pillow==8.1.1             # via matplotlib
+pillow==9.0.0             # via matplotlib
 pluggy==0.13.1            # via pytest
 protobuf==3.12.4          # via stanza
 py==1.10.0                 # via pytest
