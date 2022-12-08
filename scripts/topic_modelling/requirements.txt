@@ -8,7 +8,7 @@ attrs==19.3.0             # via pytest
 boto3==1.14.34            # via smart-open
 boto==2.49.0              # via smart-open
 botocore==1.17.34         # via boto3, s3transfer
-certifi==2020.6.20        # via requests
+certifi==2022.12.7        # via requests
 chardet==3.0.4            # via requests
 cycler==0.10.0            # via matplotlib
 docutils==0.15.2          # via botocore
