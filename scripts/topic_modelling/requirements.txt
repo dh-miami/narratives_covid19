@@ -48,7 +48,7 @@ toml==0.10.1              # via pytest
 torch==1.6.0              # via stanza
 tqdm==4.48.2              # via -r requirements.in, stanza
 urllib3==1.25.10          # via botocore, requests
-wheel==0.34.2             # via pyldavis
+wheel==0.38.1             # via pyldavis
 zipp==3.1.0               # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
